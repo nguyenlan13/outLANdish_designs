@@ -17,6 +17,10 @@ class Api::V1::ItemsController < ApplicationController
         render json: @item, status: 200
     end
 
+    def edit
+
+    end
+
     def update
         @item = Item.find(params[:id])
         @item.update(item_params)
