@@ -4,3 +4,4 @@ class BaseAdapter{
         this.baseURL = baseURL
         // this.token = null
     }
+}
