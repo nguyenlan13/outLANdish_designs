@@ -4,27 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>outLANdish designs</title>
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel ="stylesheet" type="text/css" href="styles/style.css">
+    <script type="text/javascript" src="src/router.js"></script>
     <script type="text/javascript" src="src/helpers.js"></script>
     <script type="text/javascript" src="src/index.js"></script>
+    <script type="text/javascript" src="src/adapters/baseAdapter.js"></script>
     <script type="text/javascript" src="src/components/app.js"></script>
     <script type="text/javascript" src="src/components/cart.js"></script>
     <script type="text/javascript" src="src/components/item.js"></script>
+    <script type="text/javascript" src="src/pageManagers/pageManager.js"></script>
+    <script type="text/javascript" src="src/pageManagers/welcome.js"></script>
+    <script type="text/javascript" src="src/pageManagers/navbar.js"></script>
+    <title>outLANdish designs</title>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
+      <div id="app-container">
+        <img id="brand-logo" src="assets/Outlandish_logo.png" alt="">
+
+            <div id="navbar-container">
+              
             </div>
-        </nav>
-    </header>
+            <div id="page-container" class="container">
+                 
+            </div>
+    </div>
 </body>
 </html>
