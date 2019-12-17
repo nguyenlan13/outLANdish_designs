@@ -2,7 +2,7 @@ class Api::V1::ItemsController < ApplicationController
 
     def index
         @items = Item.all
-        render json: @items, status: 200
+        render json: @items, include: [:carts, :cart_items, :categories, :item_categories], status: 200
     end
 
     def create
@@ -14,7 +14,8 @@ class Api::V1::ItemsController < ApplicationController
     def show
         @item = Item.find(params[:id])
 
-        render json: @item, status: 200
+        render json: {item: @item, categories: @item.categories}
+        # render json: @item, status: 200
     end
 
     def edit
@@ -36,7 +37,7 @@ class Api::V1::ItemsController < ApplicationController
 
     private
     def item_params
-        params.require(:item).permit()
+        params.require(:item).permit(:name, :description, :color, :size, :price, :in_stock?)
     end
 end
 
