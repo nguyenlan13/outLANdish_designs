@@ -14,7 +14,8 @@ class Api::V1::ItemsController < ApplicationController
     def show
         @item = Item.find(params[:id])
 
-        render json: {item: @item, categories: @item.categories}
+        # render json: {item: @item, categories: @item.categories}
+        render json: @item.to_json(include: {categories: {only: :name}})
         # render json: @item, status: 200
     end
 

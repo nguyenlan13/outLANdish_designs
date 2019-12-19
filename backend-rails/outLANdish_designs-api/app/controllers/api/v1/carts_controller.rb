@@ -3,7 +3,7 @@ class Api::V1::CartsController < ApplicationController
     def create
         if params[:account_id]
             @account = Account.find(params[:account_id])
-            @cart = @account.cart.build(cart_params)
+            @cart = @account.cart.build
 
             if @cart.save
                 render json: @cart, status: 200
@@ -21,9 +21,4 @@ class Api::V1::CartsController < ApplicationController
     end
 
   
-
-    private
-    def cart_params
-        params.require(:cart).permit(:account_id)
-    end
 end
