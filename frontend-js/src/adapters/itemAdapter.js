@@ -8,8 +8,8 @@ class ItemAdapter{
     async function getItem(){
         try{
         const itemResponse = await fetch(`${this.baseURL}/items/${id}`)
-        const itemJson = await item.json()
-
+        const itemJson = await itemResponse.json()
+console.log(itemJson)
         }catch(error){
             console.log(error)
         }
