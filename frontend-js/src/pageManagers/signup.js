@@ -8,6 +8,7 @@ class SignupPage extends PageManager{
 
     get staticHTML(){
         return(`
+        <h1> Sign Up for an Account </h1>
          <form>
             <div class="form-row">
                 <div class="form-group col-md-6">
