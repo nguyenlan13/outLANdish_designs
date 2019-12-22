@@ -15,20 +15,6 @@ class Router{
     }
 
 
-    assignRedirect(callback){
-        this.assignCallback(callback, 'redirect')
-    }
-
-    assignAlertHanlder(callback){
-        this.assignCallback(callback, 'handleAlert')
-    }
-
-    assignCallback(callback, name){
-        for(let route in this.routes){
-            this.routes[route][name] = callback
-        }
-        if(this.navbar){ this.navbar.redirect = callback }
-    }
 
     assignNavbar(navbar){
         this.navbar = navbar
