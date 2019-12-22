@@ -18,22 +18,38 @@ namespace :api do
             resources :items do
                 resources :categories
             end
-        end
-    end
-
-    namespace :api do
-        namespace :v1 do
             resources :carts do
                 resources :items
             end
-        end
-    end
-
-    namespace :api do
-        namespace :v1 do
             resources :items do
                 resources :reviews
             end
         end
     end
+
+    # namespace :api do
+    #     namespace :v1 do
+    #         resources :carts do
+    #             resources :items
+    #         end
+    #     end
+    # end
+
+    # namespace :api do
+    #     namespace :v1 do
+    #         resources :items do
+    #             resources :reviews
+    #         end
+    #     end
+    # end
+    
+    namespace :api do
+        namespace :v1 do
+            get "/signup" => "accounts#new", as: "signup"
+            get "/login" => "sessions#new", as: "login"
+            post "/login" => "sessions#create"
+            delete "/logout" => "sessions#destroy"
+        end
+    end
+
 end
