@@ -3,7 +3,6 @@ class ApplicationController < ActionController::API
     include ActionController::RequestForgeryProtection
 
     protect_from_forgery with: :exception
-
     before_action :set_csrf_cookie
 
 
@@ -23,8 +22,6 @@ class ApplicationController < ActionController::API
     def logged_in?
         !!session[:account_id]
     end
-
-
 
 
     private
