@@ -93,9 +93,10 @@ cart_item belongs_to :item
 
 order belongs_to :account
 <!-- order belongs_to :cart -->
-order has_many :cart_items
-order has_many :items, through: :cart_items
+<!-- order has_many :cart_items
+order has_many :items, through: :cart_items -->
 
+order_item belongs_to
 
 review belongs_to :item
 review belongs_to :customer
