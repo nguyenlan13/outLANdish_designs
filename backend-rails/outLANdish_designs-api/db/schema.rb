@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_12_044454) do
+ActiveRecord::Schema.define(version: 2019_12_22_065132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,16 @@ ActiveRecord::Schema.define(version: 2019_12_12_044454) do
     t.string "email"
     t.string "name"
     t.string "password_digest"
-    t.string "billing_address"
-    t.string "shipping_address"
-    t.string "credit_card"
+    t.string "billing_street_1"
+    t.string "billing_street_2"
+    t.string "billing_city"
+    t.string "billing_state"
+    t.integer "billing_zip"
+    t.string "shipping_street_1"
+    t.string "shipping_street_2"
+    t.string "shipping_city"
+    t.string "shipping_state"
+    t.integer "shipping_zip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -64,9 +71,35 @@ ActiveRecord::Schema.define(version: 2019_12_12_044454) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "order_id"
+    t.string "item_name"
+    t.text "item_description"
+    t.string "item_color"
+    t.string "item_size"
+    t.decimal "item_price"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "orders", force: :cascade do |t|
+    t.integer "account_id"
     t.string "order_date"
     t.string "po_number"
+    t.decimal "shipping_cost"
+    t.decimal "order_total"
+    t.string "billing_street_1"
+    t.string "billing_street_2"
+    t.string "billing_city"
+    t.string "billing_state"
+    t.integer "billing_zip"
+    t.string "shipping_street_1"
+    t.string "shipping_street_2"
+    t.string "shipping_city"
+    t.string "shipping_state"
+    t.integer "shipping_zip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
