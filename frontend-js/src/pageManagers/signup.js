@@ -3,40 +3,58 @@ class SignupPage extends PageManager{
      constructor(container, adapter){
         super(container)
         this.adapter = adapter
+        // this.adapter = new SignupAdapter(adapter)
     }
 
+    // initBindingsAndEventListeners(){
+    //     this.form = this.container.querySelector('#signup')
+    //     this.form.addEventListener('submit', this.handleSubmit.bind(this))
+    // }
+
+    // handleSubmit(e){
+    //     e.preventDefault()
+    //     const inputs = Array.from(e.target.querySelectorAll('input'))
+    //     const [email, name, password, billing_street_1, billing_street_2, billing_city, billing_state, billing_zip, shipping_street_1, shipping_street_2, shipping_city, shipping_state, shipping_zip] = inputs.map(input => input.value)
+    //     console.log(email, name, password, billing_street_1, billing_street_2, billing_city, billing_state, billing_zip, shipping_street_1, shipping_street_2, shipping_city, shipping_state, shipping_zip)
+    // }
 
     get staticHTML(){
         return(`
-        <h1> Sign Up for an Account </h1>
-         <form>
-            <div class="form-row">
+        <h2> Sign Up for an Account </h2>
+         <form id="signup">
+         <p>
+           <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" required>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputName">Name</label>
-                    <input type="text" class="form-control" id="inputName" placeholder="Name">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Name" required>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" required>
                 </div>
+            </div>
+            </p>
+            <p>
+            <div class="form-group">
+                <label for="billAddress1">Billing Address 1 </label>
+                <input type="text" class="form-control" id="billAddress1" placeholder="1234 Main St" required>
             </div>
             <div class="form-group">
-                <label for="inputAddress">Billing Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <label for="billAddress2">Billing Address 2 </label>
+                <input type="text" class="form-control" id="billAddress2">
             </div>
-           
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <label for="billCity">City</label>
+                    <input type="text" class="form-control" id="billCity" required>
                 </div>
                     <div class="form-group col-md-4">
-                    <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
+                    <label for="billState">State</label>
+                <select id="billState" class="form-control">
                         <option value="" selected="selected">Select a State</option>
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
@@ -92,24 +110,28 @@ class SignupPage extends PageManager{
                     </select>             
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
+                    <label for="billZip">Zip</label>
+                    <input type="text" class="form-control" id="billZip" required>
                 </div>
             </div>
-
+            </p>
+            <p>
             <div class="form-group">
-                <label for="inputAddress">Shipping Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <label for="shipAddress1">Shipping Address 1 </label>
+                <input type="text" class="form-control" id="shipAddress1" placeholder="1234 Main St" required>
             </div>
-           
+            <div class="form-group">
+                <label for="shipAddress2">Shipping Address 2 </label>
+                <input type="text" class="form-control" id="shipAddress2">
+            </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <label for="shipCity">City</label>
+                    <input type="text" class="form-control" id="shipCity" required>
                 </div>
                     <div class="form-group col-md-4">
-                    <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
+                    <label for="shipState">State</label>
+                <select id="shipState" class="form-control">
                         <option value="" selected="selected">Select a State</option>
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
@@ -165,11 +187,11 @@ class SignupPage extends PageManager{
                     </select>             
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
+                    <label for="shipZip">Zip</label>
+                    <input type="text" class="form-control" id="shipZip" required>
                 </div>
             </div>
-            
+            </p>
             <button type="submit" class="btn btn-primary">Create Account</button>
             </form>
         `)

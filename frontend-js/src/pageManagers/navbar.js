@@ -60,27 +60,30 @@ class Navbar extends PageManager{
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">HOME<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Nerdy</a>
+                        <a class="nav-link" href="#">NERDY</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Holiday</a>
+                        <a class="nav-link" href="#">HOLIDAY</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Music</a>
+                        <a class="nav-link" href="#">MUSIC</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Fitness</a>
+                        <a class="nav-link" href="#">FITNESS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Inspiration</a>
+                        <a class="nav-link" href="#">INSPIRATIONAL</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">SALE</a>
                     </li>
                 </ul>
                 <span class="navbar-text">
                 
-                    <a class="btn btn-primary nav-link" href="http://localhost:3000/api/v1/accounts/:id/cart">
+                    <a class="btn btn-primary nav-link" href="*">
                     CART <span class="badge badge-light">4</span>
                     </a>
                
