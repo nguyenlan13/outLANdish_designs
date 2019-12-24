@@ -36,5 +36,8 @@ module OutLANdishDesignsApi
 
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
+    #config.serve_static_assets = true
+    #config.public_file_server.enabled = true
+    #paths['frontend'] = Rails.root.join('..', 'frontend-js')
   end
 end
