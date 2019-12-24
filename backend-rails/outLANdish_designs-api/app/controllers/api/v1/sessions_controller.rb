@@ -10,7 +10,7 @@ class Api::V1::SessionsController < ApplicationController
             log_in(account)
             render json: account, status: 200
         else
-            render json: { message: "Login credentials were incorrect, please try again." }
+            render json: { message: "Login credentials were incorrect, please try again.", error: true }
         end
     end
 
