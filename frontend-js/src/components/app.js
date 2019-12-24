@@ -3,14 +3,18 @@ class App{
     constructor(){
         // this.adapter = new BaseAdapter()
         this.initBindingsAndEventListeners()
+        // this.renderPage(new LoginPage(this.pageContainer))
         this.renderPage(new SignupPage(this.pageContainer))
+
         // this.renderPage(new WelcomePage(this.pageContainer))
         this.renderPage(new Navbar(this.navbarContainer))
         
         
         // this.router = new Router({
-        //     'welcome': new WelcomePage(this.pageContainer, this.adapter)
-        //     'item': new ItemPage(this.pageContainer)
+        //      'welcome': new WelcomePage(this.pageContainer, this.adapter),
+        //      'login': new LoginPage(this.pageContainer, this.adapter),
+        //      'signup': new SignupPage(this.pageContainer, this.adapter),
+        //      'item': new ItemPage(this.pageContainer, this.adapter),
         //     // 'itemCategory':
         //     // 'cart':
         // })
