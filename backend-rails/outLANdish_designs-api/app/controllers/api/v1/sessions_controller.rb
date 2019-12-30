@@ -4,6 +4,10 @@ class Api::V1::SessionsController < ApplicationController
 
     end
 
+    def auth
+        render json: {csrf_auth_token: form_authenticity_token}
+    end
+
     def create
         account = Account.find_by(email: params[:email])
         if account && account.authenticate(params[:password])
