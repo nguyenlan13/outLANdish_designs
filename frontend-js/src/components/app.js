@@ -3,8 +3,8 @@ class App{
     constructor(){
         this.adapter = new BaseAdapter()
         this.initBindingsAndEventListeners()
-        // this.renderPage(new LoginPage(this.pageContainer))
-        this.renderPage(new SignupPage(this.pageContainer, this.adapter))
+        this.renderPage(new LoginPage(this.pageContainer, this.adapter))
+        // this.renderPage(new SignupPage(this.pageContainer, this.adapter))
 
         // this.renderPage(new WelcomePage(this.pageContainer))
         this.renderPage(new Navbar(this.navbarContainer))
