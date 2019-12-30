@@ -2,7 +2,7 @@
 class PageManager{
 
 
-    constructor(container, adapter){
+    constructor(container){
         this.container = container
         // this.adapter = new SignupAdapter(adapter)
     }

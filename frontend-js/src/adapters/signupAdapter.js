@@ -5,6 +5,10 @@ class SignupAdapter{
         this.baseURL = this.baseAdapter.baseURL
     }
 
+    // get token(){
+    //     return this.baseAdapter.csrf_token
+    // }
+
     get headers(){
         return this.baseAdapter.headers
     }
@@ -13,9 +17,10 @@ class SignupAdapter{
         const res = await fetch(`${this.baseURL}/signup`, {
             method: "POST",
             headers: this.headers,
-            body: JSON.stringify(params)
+            body: JSON.stringify(params),
+            credentials: 'include'
         })
-        
+        // this.baseAdapter.csrf_token = res.headers.get('set-cookie')
     }
 
 }

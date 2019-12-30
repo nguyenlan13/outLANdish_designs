@@ -1,22 +1,33 @@
 class SignupPage extends PageManager{
 
-     constructor(container, adapter){
+    constructor(container, adapter){
         super(container)
-        this.adapter = adapter
-        // this.adapter = new SignupAdapter(adapter)
+        // this.adapter = adapter
+        this.adapter = new SignupAdapter(adapter)
     }
 
-    // initBindingsAndEventListeners(){
-    //     this.form = this.container.querySelector('#signup')
-    //     this.form.addEventListener('submit', this.handleSubmit.bind(this))
-    // }
+    initBindingsAndEventListeners(){
+        this.form = this.container.querySelector('#signup')
+        this.form.addEventListener('submit', this.newAccount.bind(this))
+    }
 
-    // handleSubmit(e){
-    //     e.preventDefault()
-    //     const inputs = Array.from(e.target.querySelectorAll('input'))
-    //     const [email, name, password, billing_street_1, billing_street_2, billing_city, billing_state, billing_zip, shipping_street_1, shipping_street_2, shipping_city, shipping_state, shipping_zip] = inputs.map(input => input.value)
-    //     console.log(email, name, password, billing_street_1, billing_street_2, billing_city, billing_state, billing_zip, shipping_street_1, shipping_street_2, shipping_city, shipping_state, shipping_zip)
-    // }
+    async newAccount(e){
+        e.preventDefault()
+        const inputs = Array.from(e.target.querySelectorAll('input'))
+        const [email, name, password, billing_street_1, billing_street_2, billing_city, billing_state, billing_zip, shipping_street_1, shipping_street_2, shipping_city, shipping_state, shipping_zip] = inputs.map(input => input.value)
+        // console.log(email, name, password, billing_street_1, billing_street_2, billing_city, billing_state, billing_zip, shipping_street_1, shipping_street_2, shipping_city, shipping_state, shipping_zip)
+        const params = {
+            account: {
+                email, name, password, billing_street_1, billing_street_2, billing_city, billing_state, billing_zip, shipping_street_1, shipping_street_2, shipping_city, shipping_state, shipping_zip
+            }
+        }
+        // try{
+            await this.adapter.signup(params)
+            // this.redirect('profile')
+        //   }catch(err){
+        //     this.handleError(err)
+        //   }
+    }
 
     get staticHTML(){
         return(`
@@ -198,9 +209,9 @@ class SignupPage extends PageManager{
     }
 
 
-    render(){
-        this.container.innerHTML = this.staticHTML
-    }
+    // render(){
+    //     this.container.innerHTML = this.staticHTML
+    // }
 
 
 
