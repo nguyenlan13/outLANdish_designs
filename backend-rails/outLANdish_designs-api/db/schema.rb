@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2019_12_22_065132) do
     t.string "color"
     t.string "size"
     t.decimal "price"
+    t.binary "item_img"
     t.boolean "in_stock?"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
