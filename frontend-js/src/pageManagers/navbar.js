@@ -59,9 +59,7 @@ class Navbar extends PageManager{
                 </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">HOME<span class="sr-only">(current)</span></a>
-                    </li>
+                 
                     <li class="nav-item">
                         <a class="nav-link" href="#">NERDY</a>
                     </li>
