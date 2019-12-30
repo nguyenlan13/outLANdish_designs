@@ -27,7 +27,7 @@ class SignupPage extends PageManager{
         //   }catch(err){
         //     this.handleError(err)
         //   }
-    }
+    } 
 
     get staticHTML(){
         return(`
