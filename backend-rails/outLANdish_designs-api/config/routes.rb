@@ -27,6 +27,7 @@ namespace :api do
             resources :carts do
                 resources :items
             end
+            get "/auth" => 'sessions#auth'
             get "/signup" => "accounts#new", as: "signup"
             post "/signup" => "accounts#create"
             get "/login" => "sessions#new", as: "login"
