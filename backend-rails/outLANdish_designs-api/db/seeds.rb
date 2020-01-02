@@ -10,8 +10,8 @@ lan = Account.create(email: "lan@gmail.com", name: "Lan", password: "password", 
 
 lan_cart = Cart.create(account: lan)
 
-heapify = Item.create(name: "heapify", description: 'harry potter inspired, min heap', color: "maroon", size: "xs", price: 24.99, in_stock?: true)
-christmas = Item.create(name: "js santa", description: 'javascript santa claus', color: "red", size: "xs", price: 19.99, in_stock?: true)
+heapify = Item.create(name: "Heapify", description: 'harry potter inspired, min heap', color: "maroon", size: "xs", price: 24.99, item_path: "assets/Christmas_Maroon_Heapify.png", in_stock?: true)
+christmas = Item.create(name: "Binary", description: 'Binary Christmas Tree', color: "red", size: "xs", price: 19.99, item_path: "assets/binarytree_christmas_mockup.png", in_stock?: true)
 
 heapify_cart = CartItem.create(cart: lan_cart, item: heapify, quantity: 2)
 christmas_cart = CartItem.create(cart: lan_cart, item: christmas, quantity: 1)

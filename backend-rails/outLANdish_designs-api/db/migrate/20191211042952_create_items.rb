@@ -6,6 +6,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
         t.string :color
         t.string :size
         t.decimal :price
+        t.string :item_path
         t.binary :item_img
         t.boolean :in_stock? 
         t.timestamps
