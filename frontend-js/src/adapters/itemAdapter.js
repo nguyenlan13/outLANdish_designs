@@ -5,9 +5,9 @@ class ItemAdapter{
         this.baseURL = this.baseAdapter.baseURL
     }
 
-    async function getItem(){
+    async getItem(){
         try{
-        const itemResponse = await fetch(`${this.baseURL}/items/${id}`)
+        const itemResponse = await fetch(`${this.baseURL}/items`)
         const itemJson = await itemResponse.json()
 console.log(itemJson)
         }catch(error){
@@ -16,7 +16,7 @@ console.log(itemJson)
     }
 
 
-    function renderItem(el){
+ renderItem(el){
         const item = document.getElementById("item-container")
         const itemElement = document.createElement("li")
         itemElement.innerText = el
