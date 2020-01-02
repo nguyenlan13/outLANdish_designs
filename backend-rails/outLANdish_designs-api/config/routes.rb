@@ -19,6 +19,9 @@ namespace :api do
                 resources :categories
                 resources :reviews
             end
+            resources :categories do
+                resources :items
+            end
             resources :accounts do
                 resources :orders
                 resources :reviews
