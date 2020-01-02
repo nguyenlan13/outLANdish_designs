@@ -21,6 +21,7 @@ class Api::V1::SessionsController < ApplicationController
     def destroy
         # reset_session
         session.delete(:account_id)
+        # session.delete(:cart_id)
         render json: {status: 200}
     end
 
