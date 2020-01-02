@@ -10,27 +10,9 @@ class ItemPage extends PageManager{
 
     get staticHTML(){
         return (`
-        <div class="card-group" style="width: 35rem;">
-            <div class="card text-right" style="width: 15rem;">
-                <img class="card-img-top" src="assets/binarytree_christmas_mockup.png" alt="Card image cap" >
-                <div class="card-body">
-                    <h5 class="card-title text-center">Binary Christmas Tree</h5>
-                        <p class="card-text"> </p>
-                        <a href="#" class="btn btn-primary">Details</a>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
-                </div>
-            </div>
-            <br>
-            <div class="card text-right" style="width: 15rem;">
-                <img class="card-img-top" src="assets/Christmas_Maroon_Heapify.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Heapify</h5>
-                        <p class="card-text"> </p>
-                        <a href="#" class="btn btn-primary">Details</a>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
-                </div>
-            </div>
-         </div>
+
+        <div> Items Page </div>
+        
         `)
     }
     
@@ -68,9 +50,9 @@ class ItemPage extends PageManager{
 
     // }
 
-    render(){
-        //this.buildHTML()
-        this.container.innerHTML = this.staticHTML
-    }
+    // render(){
+    //     //this.buildHTML()
+    //     this.container.innerHTML = this.staticHTML
+    // }
 
 }

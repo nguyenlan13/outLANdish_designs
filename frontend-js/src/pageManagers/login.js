@@ -32,9 +32,8 @@ class LoginPage extends PageManager{
 
     get staticHTML(){
         return(`
-        <h2> Sign In </h2>
         <form id="login">
-        <h2> Login </h2>
+        <h2> Log In </h2>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
@@ -44,7 +43,7 @@ class LoginPage extends PageManager{
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
             </div>
         
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Log In</button>
         </form>
         `)
     }

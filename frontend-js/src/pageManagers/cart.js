@@ -1,0 +1,4 @@
+class CartPage extends PageManager{
+
+    
+}

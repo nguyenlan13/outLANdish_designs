@@ -1,13 +1,13 @@
-class WelcomePage{
+class WelcomePage extends PageManager{
 
     constructor(container){
-        this.container = container
+        super(container)
     }
 
     get staticHTML(){
         return (`
        
-                <img id="brand-logo" src="assets/Outlandish_logo.png">
+                <h2> WELCOME PAGE </h2>
   
         `)
     }
