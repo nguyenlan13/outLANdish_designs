@@ -9,17 +9,17 @@ class ItemAdapter{
         try{
         const itemResponse = await fetch(`${this.baseURL}/items`)
         const itemJson = await itemResponse.json()
-console.log(itemJson)
+            console.log(itemJson)
         }catch(error){
             console.log(error)
         }
     }
 
 
- renderItem(el){
-        const item = document.getElementById("item-container")
-        const itemElement = document.createElement("li")
-        itemElement.innerText = el
-        item.appendChild(itemElement)
-    }
+//  renderItem(el){
+//         const item = document.getElementById("item-container")
+//         const itemElement = document.createElement("li")
+//         itemElement.innerText = el
+//         item.appendChild(itemElement)
+//     }
 }

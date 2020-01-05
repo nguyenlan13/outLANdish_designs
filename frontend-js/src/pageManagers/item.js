@@ -17,11 +17,11 @@ class ItemPage extends PageManager{
     }
     
     // get buildHTML() {
-    //     var output = '';
+    //     let output = '';
 
-    //     var items = this.adapter.getItems();
+    //     let items = this.adapter.getItems();
 
-    //     for (var i = 0; i < items.length; i++) {
+    //     for (let i = 0; i < items.length; i++) {
     //         let title = item[i].title;
     //         output += (`
     //         <div class="card" style="width: 18rem;">
