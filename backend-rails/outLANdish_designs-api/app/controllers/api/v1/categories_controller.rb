@@ -1,7 +1,11 @@
 class Api::V1::CategoriesController < ApplicationController
 
     def index
-        @categories = Category.all
+        if params[:item_id]
+            @categories = Item.find(params[:item_id]).categories
+        else
+            @categories = Category.all
+        end
         render json: @categories, status: 200
     end
 
@@ -13,7 +17,7 @@ class Api::V1::CategoriesController < ApplicationController
 
     def show
         @category = Category.find(params[:id])
-
+        # render json: @category.to_json(include: {:items})
         render json: @category, status: 200
     end
 

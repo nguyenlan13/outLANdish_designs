@@ -1,8 +1,15 @@
 class Api::V1::ItemsController < ApplicationController
 
     def index
-        @items = Item.all
-        render json: @items, include: [:carts, :cart_items, :categories, :item_categories], status: 200
+        if params[:category_id]
+            @items = Category.find(params[:category_id]).items
+        elsif params [:cart_id]
+            @items = Cart.find(params[:cart_id]).items
+        else
+            @items = Item.all
+        end
+            render json: @items, status: 200
+        # render json: @items, include: [:carts, :cart_items, :categories, :item_categories], status: 200
     end
 
     def create
