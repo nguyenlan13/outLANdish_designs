@@ -16,11 +16,4 @@ class ItemCategoryAdapter{
         
     }
 
-
-    // renderItem(el){
-    //     const item = document.getElementById("item-container")
-    //     const itemElement = document.createElement("li")
-    //     itemElement.innerText = el
-    //     item.appendChild(itemElement)
-    // }
 }

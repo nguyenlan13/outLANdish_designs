@@ -2,7 +2,6 @@ class SignupPage extends PageManager{
 
     constructor(container, adapter){
         super(container)
-        // this.adapter = adapter
         this.adapter = new SignupAdapter(adapter)
     }
 
@@ -21,12 +20,12 @@ class SignupPage extends PageManager{
                 email, name, password, billing_street_1, billing_street_2, billing_city, billing_state, billing_zip, shipping_street_1, shipping_street_2, shipping_city, shipping_state, shipping_zip
             }
         }
-        // try{
+        try{
             await this.adapter.signup(params)
-            // this.redirect('profile')
-        //   }catch(err){
-        //     this.handleError(err)
-        //   }
+            this.redirect('welcome')
+          }catch(error){
+        
+          }
     } 
 
     get staticHTML(){
@@ -207,12 +206,5 @@ class SignupPage extends PageManager{
             </form>
         `)
     }
-
-
-    // render(){
-    //     this.container.innerHTML = this.staticHTML
-    // }
-
-
 
 }

@@ -21,12 +21,12 @@ class LoginPage extends PageManager{
                 email, password
             }
         }
-        // try{
+        try{
             await this.adapter.login(params)
-            // this.redirect('profile')
-        //   }catch(err){
+            this.redirect('welcome')
+          }catch(error){
         //     this.handleError(err)
-        //   }
+          }
     } 
    
 

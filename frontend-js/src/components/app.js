@@ -11,22 +11,22 @@ class App{
         
         
         this.router = new Router({
-            // 'welcome': new WelcomePage(this.pageContainer, this.adapter),
-            // 'login': new LoginPage(this.pageContainer, this.adapter),
-            // 'signup': new SignupPage(this.pageContainer, this.adapter),
+            'welcome': new WelcomePage(this.pageContainer, this.adapter),
+            'login': new LoginPage(this.pageContainer, this.adapter),
+            'signup': new SignupPage(this.pageContainer, this.adapter),
             'item': new ItemPage(this.pageContainer, this.adapter),
-            'itemCategory': new ItemCategoryPage(this.pageContainer, this.adapter)
-            // 'cart': new CartPage(this.pageContainer, this.adapter)
+            'itemCategory': new ItemCategoryPage(this.pageContainer, this.adapter),
+            'cart': new CartPage(this.pageContainer, this.adapter)
          })
 
         const navbar = new Navbar(this.navbarContainer, this.adapter)
 
         this.router.assignNavbar(navbar)
-        // this.router.render('welcome')
-        this.router.render('itemCategory')
+        
+        // this.router.render('itemCategory')
         // this.router.render('signup')
         this.router.assignCallback(this.pageManagerRedirect.bind(this))
-
+        this.renderPage('welcome')
 
         //setTimeout(function() {
         //    this.renderPage(new ItemPage(this.pageContainer))
@@ -48,7 +48,4 @@ class App{
         this.pageContainer = document.querySelector('#page-container')
     }
 
-    // renderPage(page){
-    //     page.render()
-    // }
 }

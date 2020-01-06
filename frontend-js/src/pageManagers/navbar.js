@@ -11,17 +11,21 @@ class Navbar extends PageManager{
 
     }
 
+    get loggedIn(){
+        
+    }
+
     handleClick(e){
         if(e.target.tagName === "A"){
+            console.log(e.target)
             e.preventDefault()
             // if(e.target.id !== 'logout-link'){
               const route = e.target.id.split('-')[0]
               if(route !== this.currentPage()) { this.redirect(route) } 
-            // }else{
-            //   this.adapter.token = null
-            //   this.redirect('welcome')
-            // }
-        }
+            }else{
+              this.redirect('welcome')
+            }
+        // }
     }
 
     async buildHTML() {
@@ -61,7 +65,7 @@ class Navbar extends PageManager{
             
             output += (`                
                      <li class="nav-item">
-                         <a class="nav-link" id="${name}-${categoryId}" href="#" >${name}</a>
+                         <a class="nav-link" id="itemCategory-${categoryId}-${name}" href="#" >${name}</a>
                      </li>
             `)
         }
@@ -70,54 +74,58 @@ class Navbar extends PageManager{
 
     async render(){
         this.container.innerHTML = await this.buildHTML()
-        // this.container.innerHTML = this.staticHTML
+        this.initBindingsAndEventListeners()
     }
 
+
     // get staticHTML(){     
-    //     return (`
-        // <nav class="navbar fixed-top2 navbar-expand-lg navbar-light bg-light">
-        //    <a class="navbar-brand" href="#">
-        //         <img id="brand-logo" src="assets/Outlandish_logo.png">
-        //     </a>
-        //         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        //             <span class="navbar-toggler-icon"></span>
-        //         </button>
-        //     <div class="collapse navbar-collapse" id="navbarText">
-        //         <ul class="navbar-nav mr-auto">
-                 
-        //             <li class="nav-item">
-        //                 <a class="nav-link" id="nerdy-link" href="#" >NERDY</a>
-        //             </li>
-        //             <li class="nav-item">
-        //                 <a class="nav-link" id="holiday-link" href="#">HOLIDAY</a>
-        //             </li>
-        //             <li class="nav-item">
-        //                 <a class="nav-link" id="music-link" href="#">MUSIC</a>
-        //             </li>
-        //             <li class="nav-item">
-        //                 <a class="nav-link" href="#">FITNESS</a>
-        //             </li>
-        //             <li class="nav-item">
-        //                 <a class="nav-link" href="#">INSPIRATIONAL</a>
-        //             </li>
-        //             <li class="nav-item">
-        //             <a class="nav-link" href="#">SALE</a>
-        //             </li>
-        //         </ul>
-        //         <span class="navbar-text">
-                
-        //             <a class="btn btn-primary nav-link" href="*">
-        //             CART <span class="badge badge-light">4</span>
-        //             </a>
-               
-        //         </span>
-        //     </div>
-        // </nav>
-    //     `)
-    // }
-    
-    // render(){
-    //     this.container.innerHTML = this.staticHTML
-    // }
+    //         return (`
+    //         <nav class="navbar fixed-top2 navbar-expand-lg navbar-light bg-light">
+    //            <a class="navbar-brand" href="#">
+    //                 <img id="brand-logo" src="assets/Outlandish_logo.png">
+    //             </a>
+    //                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    //                     <span class="navbar-toggler-icon"></span>
+    //                 </button>
+    //             <div class="collapse navbar-collapse" id="navbarText">
+    //                 <ul class="navbar-nav mr-auto">
+                     
+    //                     <li class="nav-item">
+    //                         <a class="nav-link" id="nerdy-link" href="#" >NERDY</a>
+    //                     </li>
+    //                     <li class="nav-item">
+    //                         <a class="nav-link" id="holiday-link" href="#">HOLIDAY</a>
+    //                     </li>
+    //                     <li class="nav-item">
+    //                         <a class="nav-link" id="music-link" href="#">MUSIC</a>
+    //                     </li>
+    //                     <li class="nav-item">
+    //                         <a class="nav-link" href="#">FITNESS</a>
+    //                     </li>
+    //                     <li class="nav-item">
+    //                         <a class="nav-link" href="#">INSPIRATIONAL</a>
+    //                     </li>
+    //                     <li class="nav-item">
+    //                     <a class="nav-link" href="#">SALE</a>
+    //                     </li>
+    //                     </ul>
+    //                     <span class="navbar-text">
+                          
+    //                            <div class="navbar-nav"> <a class="nav-link" id="signup-link" href="#" >SIGN UP</a> | <a class="nav-link" id="login-link" href="#" >LOG IN</a> </div>
+                           
+    //                         <a class="btn btn-primary nav-link" href="*">
+    //                         CART <span class="badge badge-light">4</span>
+    //                         </a>
+                    
+    //                     </span>
+    //                 </div>
+    //             </nav>
+    //         `)
+    //     }
+        
+    //     render(){
+    //         this.container.innerHTML = this.staticHTML
+    //         this.initBindingsAndEventListeners()
+    //     }
 
 }
