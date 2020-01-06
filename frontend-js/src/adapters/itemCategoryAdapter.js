@@ -10,10 +10,10 @@ class ItemCategoryAdapter{
         // const itemsResponse = await fetch(`${this.baseURL}/categories/${id}/items`)
         const itemsResponse = await fetch(`${this.baseURL}/categories/1/items`)
         const itemJson = await itemsResponse.json()
-            console.log(itemJson)
+        return itemJson
         }catch(error){
-            console.log(error)
         }
+        
     }
 
 

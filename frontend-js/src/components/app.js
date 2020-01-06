@@ -15,7 +15,7 @@ class App{
             // 'login': new LoginPage(this.pageContainer, this.adapter),
             // 'signup': new SignupPage(this.pageContainer, this.adapter),
             'item': new ItemPage(this.pageContainer, this.adapter),
-            'itemCategory': new ItemCategoryPage(this.pageContainer, this.adapter),
+            'itemCategory': new ItemCategoryPage(this.pageContainer, this.adapter)
             // 'cart': new CartPage(this.pageContainer, this.adapter)
          })
 
