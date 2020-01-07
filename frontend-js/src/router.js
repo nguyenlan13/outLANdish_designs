@@ -9,22 +9,24 @@ class Router{
     }
 
     render(page){
+        console.log("this.routes", this.routes)
         this.routes[page].render()
         if(this.navbar){ this.navbar.render() }
         this.currentPage = page
     }
 
     assignRedirect(callback){
-        this.assignCallback(callback)
+        this.assignCallback(callback, "redirect")
     }
 
 
     assignCallback(callback, name){
         for(let route in this.routes){
-        //     this.routes[route].redirect = callback
-        // }
+            //this.routes[route].redirect = callback
             this.routes[route][name] = callback
         }
+        //     this.routes[route][name] = callback
+        // }
         if(this.navbar){ this.navbar.redirect = callback }
     }
 

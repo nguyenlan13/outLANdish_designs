@@ -12,19 +12,27 @@ class Navbar extends PageManager{
     }
 
     get loggedIn(){
-        
+
     }
 
     handleClick(e){
         if(e.target.tagName === "A"){
             console.log(e.target)
             e.preventDefault()
-            // if(e.target.id !== 'logout-link'){
+            
+            // if(e.target.id.split('-')[0] == 'itemCategory'){
+            //     let categoryId = e.target.id.split('-')[1]
+            //     console.log("Category ID", categoryId);
+                
+            //     // this.redirect("itemCategory", categoryId);
+            // }
+            
               const route = e.target.id.split('-')[0]
-              if(route !== this.currentPage()) { this.redirect(route) } 
+             if(route !== this.currentPage()) { this.redirect(route) } 
             }else{
               this.redirect('welcome')
             }
+            
         // }
     }
 
@@ -45,7 +53,7 @@ class Navbar extends PageManager{
                 </ul>
                     <span class="navbar-text">
                       
-                           <div class="navbar-nav"> <a class="nav-link" id="signup-link" href="#" >SIGN UP</a> | <a class="nav-link" id="login-link" href="#" >LOG IN</a> </div>
+                           <div class="navbar-nav"> <a class="nav-link" id="signup-link" href="#" >SIGN UP</a> <span style="padding-top: 6px">|</span> <a class="nav-link" id="login-link" href="#" >LOG IN</a> </div>
                        
                         <a class="btn btn-primary nav-link" href="*">
                         CART <span class="badge badge-light">4</span>

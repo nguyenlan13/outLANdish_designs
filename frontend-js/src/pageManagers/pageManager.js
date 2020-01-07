@@ -10,12 +10,12 @@ class PageManager{
         return null
     }
 
-    // handleError(err){
-    //     if(err.type === "Authorizaiton Error"){
-    //         this.handleAlert(err.msg)
+    // handleError(error){
+    //     if(error.type === "Authorizaiton Error"){
+    //         this.handleAlert(error.msg)
     //         this.redirect('welcome')
     //     }else{
-    //         this.handleAlert(err)
+    //         this.handleAlert(error)
     //     }
     // }
 

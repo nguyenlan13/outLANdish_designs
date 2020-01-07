@@ -35,6 +35,7 @@ Rails.application.routes.draw do
                 resources :items
             end
 
+            resources :carts
             # resources :categories
             # resources :items
             get "/auth" => 'sessions#auth'

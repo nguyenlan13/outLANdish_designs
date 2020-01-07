@@ -25,8 +25,11 @@ class App{
         
         // this.router.render('itemCategory')
         // this.router.render('signup')
-        this.router.assignCallback(this.pageManagerRedirect.bind(this))
+        this.router.assignRedirect(this.pageManagerRedirect.bind(this))
+        //this.router.assignRedirect(this.pageManagerRedirect)
+        //this.router.assignCallback(this.pageManagerRedirect.bind(this), "redirect")
         this.renderPage('welcome')
+        // this.renderPage('item')
 
         //setTimeout(function() {
         //    this.renderPage(new ItemPage(this.pageContainer))
@@ -35,11 +38,15 @@ class App{
     }
 
     pageManagerRedirect(page){
-        this.renderPage(page)
+        console.log("ARGS", arguments)
+        //this.renderPage(page)
+        this.renderPage.apply(this, arguments)
     }
 
-    renderPage(page){
-        this.router.render(page)
+    renderPage(page, id){
+        console.log("PAGE", page, arguments);
+        this.router.render(page, id)
+        //this.router.render.apply(this, arguments)
     }
     
     initBindingsAndEventListeners(){

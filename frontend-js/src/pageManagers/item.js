@@ -2,57 +2,63 @@ class ItemPage extends PageManager{
 
     constructor(container, adapter){
         super(container)
-        this.adapter = adapter
+        // this.adapter = adapter
+        this.adapter = new ItemAdapter(adapter)
+    }
+
+    initBindingsAndEventListeners(){
+
     }
 
 
+    // get staticHTML(){
+    //     return (`
 
-
-    get staticHTML(){
-        return (`
-
-        <div> Items Page </div>
+    //     <div> Items Page </div>
         
-        `)
-    }
+    //     `)
+    // }
     
-    // get buildHTML() {
-    //     let output = '';
+    async buildHTML() {
+        let output = '';
 
-    //     let items = this.adapter.getItems();
+        let item = await this.adapter.getItem();
+console.log(item)
 
-    //     for (let i = 0; i < items.length; i++) {
-    //         let title = item[i].title;
-    //         output += (`
-    //         <div class="card" style="width: 18rem;">
-    //             <img class="card-img-top" src="assets/binarytree_christmas_mockup.png" alt="Card image cap">
-    //             <div class="card-body">
-    //                 <h5 class="card-title">${title}</h5>
-    //                     <p class="card-text"> </p>
-    //                     <a href="#" class="btn btn-primary">Add to cart</a>
-    //             </div>
-    //         </div>
-    //         `)
-    //         /*
-    //         output += '<div class="card" style="width: 18rem;">';
-    //         output += '<img class="card-img-top" src="assets/binarytree_christmas_mockup.png" alt="Card image cap">';
-    //         output += '<div class="card-body">';
-    //         output += ' <h5 class="card-title">' + items[i].title + '</h5>';
-    //         output += '    <p class="card-text"> </p>';
-    //         output += '    <a onclick="addItemToCart(' + items.id + ')" class="btn btn-primary">Add to cart</a>';
-    //         output += '</div>';
-    //         output += '</div>';
-    //         //*/
-    //     }
-
-    //     return output;
+            output += (`
+      
+                <img class="card-img-top rounded float-left" style="width: 40rem" src=${item.item_path} alt="Card image cap">
+                <div class="card-body"><span style="padding-top: 6px">
+                    <h5 class="card-title">${item.name}</h5>
+                        <p class="card-text">${item.description} </p>
+                        <p class="card-text">${item.color}</p>
+                        <p class="card-text">${item.size} </p>
+                        <p class="card-text">${item.price} </p>
+                        <a href="#" class="btn btn-primary">Add to cart</a>
+                        </span>
+                </div>
+        
+            `)
 
 
-    // }
+        return output;
 
-    // render(){
-    //     //this.buildHTML()
-    //     this.container.innerHTML = this.staticHTML
-    // }
+    }
+
+    async render(){
+        this.container.innerHTML = await this.buildHTML()
+        // this.container.innerHTML = this.staticHTML
+    }
 
 }
+
+// output += (`
+// <div class="card" style="width: 18rem;">
+//     <img class="card-img-top" src="assets/binarytree_christmas_mockup.png" alt="Card image cap">
+//     <div class="card-body">
+//         <h5 class="card-title">${item.description}</h5>
+//             <p class="card-text"> </p>
+//             <a href="#" class="btn btn-primary">Add to cart</a>
+//     </div>
+// </div>
+// `)
