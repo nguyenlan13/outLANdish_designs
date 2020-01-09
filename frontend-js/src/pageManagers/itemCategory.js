@@ -3,26 +3,52 @@ class ItemCategoryPage extends PageManager{
     constructor(container, adapter){
         super(container)
         this.adapter = new ItemCategoryAdapter(adapter)
-        // this.categoryId = ""
+        // this.initBindingsAndEventListeners()
     }
 
     initBindingsAndEventListeners(){
-        this.detailsButton = this.container.querySelector('.details')
-        this.addToCart = this.container.querySelector('.add-cart')
+        this.container.addEventListener('click', this.handleClick.bind(this))
 
-        this.detailsButton.addEventListener('click', this.handleDetailsClick.bind(this))
-        this.addToCart.addEventListener('submit', this.handleAddCartClick.bind(this))
     }
 
-    handleDetailsClick(e){
-        e.preventDefault()
-        this.redirect('item')
+    handleClick(e){
+        if(e.target.tagName === "A"){
+            console.log(e.target)
+            e.preventDefault()
+            
+            if(e.target.id.split('-')[0] == 'item'){
+                let currentId = e.target.id.split('-')[1]              
+                this.redirect("item", currentId);
+            }
+        }
     }
 
-    handleAddCartClick(e){
-        e.preventDefault()
-        this.redirect('cart')
-    }
+    // handleDetailsClick(e){
+    //     if(e.target.tagName === "A"){
+    //         // console.log(e.target)
+    //         e.preventDefault()
+            
+    //         if(e.target.id.split('-')[0] == 'item'){
+    //             let currentId = e.target.id.split('-')[1]  
+    //             console.log(currentId)
+    //             // let route = ('item', currentId)   
+    //             // if(route !== this.currentPage()) { this.redirect(route) }   
+    //             this.redirect("item", currentId);
+    //         }
+    //     // e.preventDefault()
+    //     // console.log(e.target)
+    
+    //     // let currentId = e.target.className.split('-')[1]
+    //     // this.redirect("item", currentId);
+        
+    //     // this.redirect('item')
+    //     }
+    // }
+
+    // handleAddCartClick(e){
+    //     e.preventDefault()
+    //     this.redirect('cart')
+    // }
 
     // async fetchAndRenderPageResources(){
     //     // try{
@@ -35,12 +61,14 @@ class ItemCategoryPage extends PageManager{
     //     // }
         
     // }
-
-    async buildHTML() {
+    async fetchAndRenderPageResources(currentId) {
+    // async buildHTML(currentId) {
             let output = '';
             output += `<div class="card-group" style="width: 35rem;">`
-            let items = await this.adapter.getCategoryItems();
+            let items = await this.adapter.getCategoryItems(currentId);
+            console.log(items)
             for (let i = 0; i < items.length; i++) {
+                let itemId = items[i].id;
                 let name = items[i].name;
                 let imgPath = items[i].item_path;
 
@@ -51,33 +79,31 @@ class ItemCategoryPage extends PageManager{
                         <div class="card-body">
                             <h5 class="card-title">${name}</h5>
                                 <p class="card-text"> </p>
-                                <a href="#" class="btn btn-primary details">Details</a>
+                                <a href="#" class="btn btn-primary details" id="item-${itemId}">Details</a>
                                 <a href="#" class="btn btn-primary add-cart">Add to cart</a>
                         </div>
                     </div>
                 
                 `)
             }
-
+        
             output += `</div>`
-
-            return output;
+        // return output
+            this.container.innerHTML = (`${output}`);
         }
     
-    async render(){
-    console.log("PLZ WORK", arguments);
+    // async render(currentId){
+    //     this.container.innerHTML = await this.buildHTML(currentId)
+    //     this.initBindingsAndEventListeners()
+    //     // this.fetchAndRenderPageResources()
+    //     // this.container.innerHTML = this.staticHTML
+    // }
 
-        this.container.innerHTML = await this.buildHTML()
-        this.initBindingsAndEventListeners()
-        // this.fetchAndRenderPageResources()
-        // this.container.innerHTML = this.staticHTML
-    }
-
-    get staticHTML(){
-        return (`
-        <div class="loader"></div>
+    // get staticHTML(){
+    //     return (`
+    //     <div class="loader"></div>
        
-        `)
-    }
+    //     `)
+    // }
 
 }

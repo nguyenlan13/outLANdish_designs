@@ -11,44 +11,48 @@ class ItemPage extends PageManager{
     }
 
 
-    // get staticHTML(){
-    //     return (`
+    get staticHTML(){
+        return (`
 
-    //     <div> Items Page </div>
+        <div> Items Page </div>
         
-    //     `)
-    // }
-    
-    async buildHTML() {
+        `)
+    }
+
+
+    async fetchAndRenderPageResources(currentId) {
+    // async buildHTML(currentId) {
         let output = '';
 
-        let item = await this.adapter.getItem();
-console.log(item)
+        let item = await this.adapter.getItem(currentId);
+        
+        
+    console.log(currentId)
 
             output += (`
       
-                <img class="card-img-top rounded float-left" style="width: 40rem" src=${item.item_path} alt="Card image cap">
-                <div class="card-body"><span style="padding-top: 6px">
+                <img class="card-img-top rounded float-left" style="width: 40rem; margin-right: 20px" src=${item.item_path} alt="Card image cap">
+                <div class="card-body"><span style="padding-top: 10px">
                     <h5 class="card-title">${item.name}</h5>
                         <p class="card-text">${item.description} </p>
                         <p class="card-text">${item.color}</p>
                         <p class="card-text">${item.size} </p>
-                        <p class="card-text">${item.price} </p>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
+                        <p class="card-text">$${item.price} </p>
+                        <a href="#" class="btn btn-primary add-cart">Add to cart</a>
                         </span>
                 </div>
         
             `)
 
-
-        return output;
+            this.container.innerHTML = (`${output}`)
+        // return output;
 
     }
 
-    async render(){
-        this.container.innerHTML = await this.buildHTML()
-        // this.container.innerHTML = this.staticHTML
-    }
+    // async render(currentId){
+    //     this.container.innerHTML = await this.buildHTML(currentId)
+    //     // this.container.innerHTML = this.staticHTML
+    // }
 
 }
 

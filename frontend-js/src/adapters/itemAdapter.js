@@ -5,17 +5,11 @@ class ItemAdapter{
         this.baseURL = this.baseAdapter.baseURL
     }
 
-    async getItem(){
+    async getItem(currentId){
         try{
-        // const itemResponse = await fetch(`${this.baseURL}/categories/${categoryId}/items/{itemId}`)
-        const itemResponse = await fetch(`${this.baseURL}/categories/2/items/2`)
-        const itemJson = await itemResponse.json()
-        
-        console.log(itemJson)
-        return itemJson
-            
+            const itemResponse = await fetch(`${this.baseURL}/items/${currentId}`)
+            const itemJson = await itemResponse.json()
         }catch(error){
-            console.log(error)
         }
     }
 

@@ -28,6 +28,7 @@ class App{
         this.router.assignRedirect(this.pageManagerRedirect.bind(this))
         //this.router.assignRedirect(this.pageManagerRedirect)
         //this.router.assignCallback(this.pageManagerRedirect.bind(this), "redirect")
+        this.router.navbar.render();
         this.renderPage('welcome')
         // this.renderPage('item')
 
@@ -37,15 +38,15 @@ class App{
             
     }
 
-    pageManagerRedirect(page){
-        console.log("ARGS", arguments)
-        //this.renderPage(page)
-        this.renderPage.apply(this, arguments)
+    pageManagerRedirect(page, currentId){
+        // console.log("ARGS", arguments)
+        this.renderPage(page, currentId)
+        // this.renderPage.apply(this, arguments)
     }
 
-    renderPage(page, id){
-        console.log("PAGE", page, arguments);
-        this.router.render(page, id)
+    renderPage(page, currentId){
+        // console.log("PAGE", page, arguments);
+        this.router.render(page, currentId)
         //this.router.render.apply(this, arguments)
     }
     

@@ -4,6 +4,11 @@ class PageManager{
 
     constructor(container){
         this.container = container
+        this.initBindingsAndEventListeners()
+    }
+
+    initBindingsAndEventListeners(){
+        return null
     }
 
     fetchAndRenderPageResources(){
@@ -19,10 +24,11 @@ class PageManager{
     //     }
     // }
 
-    render(){
+    async render(currentId){
         this.container.innerHTML = this.staticHTML
-        this.initBindingsAndEventListeners()
-        this.fetchAndRenderPageResources()
+        this.fetchAndRenderPageResources(currentId)
+        // this.initBindingsAndEventListeners()
+        
     }
 
 }

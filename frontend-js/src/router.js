@@ -8,10 +8,13 @@ class Router{
         this.rootPage = this.routes[rpKey]
     }
 
-    render(page){
-        console.log("this.routes", this.routes)
-        this.routes[page].render()
-        if(this.navbar){ this.navbar.render() }
+    render(page, currentId){
+        if(currentId){
+            this.routes[page].render(currentId)
+        }else {
+            this.routes[page].render()
+        }
+        //if(this.navbar){ this.navbar.render() }
         this.currentPage = page
     }
 
@@ -25,8 +28,6 @@ class Router{
             //this.routes[route].redirect = callback
             this.routes[route][name] = callback
         }
-        //     this.routes[route][name] = callback
-        // }
         if(this.navbar){ this.navbar.redirect = callback }
     }
 
