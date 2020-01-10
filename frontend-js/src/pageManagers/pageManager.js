@@ -4,7 +4,7 @@ class PageManager{
 
     constructor(container){
         this.container = container
-        this.initBindingsAndEventListeners()
+        // this.initBindingsAndEventListeners()
     }
 
     initBindingsAndEventListeners(){
@@ -27,7 +27,7 @@ class PageManager{
     async render(currentId){
         this.container.innerHTML = this.staticHTML
         this.fetchAndRenderPageResources(currentId)
-        // this.initBindingsAndEventListeners()
+        this.initBindingsAndEventListeners()
         
     }
 

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
         namespace :v1 do
            
             resources :items do
-                # resources :categories
+                resources :categories
                 resources :reviews
             end
 
@@ -32,12 +32,15 @@ Rails.application.routes.draw do
             end
 
             resources :carts do
-                resources :items
+                resources :items, only: [:index]
             end
 
-            resources :carts
+            # resources :carts
             # resources :categories
             # resources :items
+            resources :cart_items, only: [:create, :destroy]
+           
+
             get "/auth" => 'sessions#auth'
             get "/signup" => "accounts#new", as: "signup"
             post "/signup" => "accounts#create"

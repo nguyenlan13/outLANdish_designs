@@ -29,8 +29,9 @@ class App{
         //this.router.assignRedirect(this.pageManagerRedirect)
         //this.router.assignCallback(this.pageManagerRedirect.bind(this), "redirect")
         this.router.navbar.render();
-        this.renderPage('welcome')
-        // this.renderPage('item')
+        // this.renderPage('welcome')
+        // this.renderPage('cart')
+        this.renderPage('login')
 
         //setTimeout(function() {
         //    this.renderPage(new ItemPage(this.pageContainer))

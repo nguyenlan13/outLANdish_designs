@@ -3,9 +3,9 @@ class Api::V1::ItemsController < ApplicationController
     def index
         if params[:category_id]
             @items = Category.find(params[:category_id]).items
-        elsif params [:cart_id]
+        elsif params[:cart_id]
             @items = Cart.find(params[:cart_id]).items
-        elsif params [:order_id]
+        elsif params[:order_id]
             @items = Order.find(params[:order_id]).items
         else
             @items = Item.all

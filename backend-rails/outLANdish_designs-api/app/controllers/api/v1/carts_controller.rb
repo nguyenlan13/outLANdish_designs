@@ -14,11 +14,15 @@ class Api::V1::CartsController < ApplicationController
     end
 
     def show
-        @cart = current_cart
+        @cart = get_cart
+        # @cart = current_cart
+       
         # @cart = Cart.find(params[:id])
         # @item = @cart.items.build
 
-        render json: @cart, include: [:item}
+        render json: @cart, include: [:item]
+    
+        # @cart,, include: [:item]
     end
 
   

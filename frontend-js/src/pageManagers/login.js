@@ -7,11 +7,18 @@ class LoginPage extends PageManager{
 
 
     initBindingsAndEventListeners(){
-        if(this.form){
+        // if(this.form){
             this.form = this.container.querySelector('#login')
             this.form.addEventListener('submit', this.login.bind(this))
-        }
+        // }
     }
+
+    // fetchAndRenderPageResources(){
+    //     if(this.form){
+    //         this.form = this.container.querySelector('#login')
+    //         this.form.addEventListener('submit', this.login.bind(this))
+    //     }
+    // }
 
     async login(e){
         e.preventDefault()
@@ -22,6 +29,7 @@ class LoginPage extends PageManager{
                 email, password
             }
         }
+        console.log(params)
         try{
             await this.adapter.login(params)
             this.redirect('welcome')

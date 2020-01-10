@@ -47,7 +47,7 @@ class Navbar extends PageManager{
                 </ul>
                     <span class="navbar-text">
                            <div class="navbar-nav"> <a class="nav-link" id="signup-link" href="#" >SIGN UP</a> <span style="padding-top: 6px">|</span> <a class="nav-link" id="login-link" href="#" >LOG IN</a> </div>
-                                <a class="btn btn-primary nav-link " href="*" >
+                                <a class="btn btn-primary nav-link " id="cart-link" href="*" >
                                     <img class="cart-icon" src="assets/Shopping_cart_icon.png">  CART
                                     <span class="badge badge-light">4</span>
                                 </a>

@@ -17,11 +17,9 @@ class ItemCategoryPage extends PageManager{
             if(e.target.id.split('-')[0] == 'item'){
                 let currentId = e.target.id.split('-')[1]              
                 this.redirect("item", currentId);
-            }else{
-                if
+            // }else{
+            //     if
             }
-
-            
         }
     }
 
