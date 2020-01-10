@@ -12,14 +12,21 @@ class ItemCategoryPage extends PageManager{
 
     handleClick(e){
         if(e.target.tagName === "A"){
-            console.log(e.target)
             e.preventDefault()
             
             if(e.target.id.split('-')[0] == 'item'){
                 let currentId = e.target.id.split('-')[1]              
                 this.redirect("item", currentId);
+            }else{
+                if
             }
+
+            
         }
+    }
+
+    updateCart(e){
+        
     }
 
     // handleDetailsClick(e){
@@ -51,11 +58,11 @@ class ItemCategoryPage extends PageManager{
 
 
     async fetchAndRenderPageResources(currentId) {
-    // async buildHTML(currentId) {
             let output = '';
+
             output += `<div class="card-group" style="width: 50rem;">`
+
             let items = await this.adapter.getCategoryItems(currentId);
-            console.log(items)
             for (let i = 0; i < items.length; i++) {
                 let itemId = items[i].id;
                 let name = items[i].name;
@@ -72,26 +79,16 @@ class ItemCategoryPage extends PageManager{
                                 <a href="#" class="btn btn-primary add-cart">Add to cart</a>
                         </div>
                     </div>
-                
                 `)
             }
-        
             output += `</div>`
-        // return output
+
             this.container.innerHTML = (`${output}`);
         }
-    
-    // async render(currentId){
-    //     this.container.innerHTML = await this.buildHTML(currentId)
-    //     this.initBindingsAndEventListeners()
-    //     // this.fetchAndRenderPageResources()
-    //     // this.container.innerHTML = this.staticHTML
-    // }
 
     get staticHTML(){
         return (`
-        <div class="loader"></div>
+            <div class="loader"></div>
         `)
     }
-
 }

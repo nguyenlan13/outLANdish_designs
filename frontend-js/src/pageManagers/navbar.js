@@ -23,16 +23,11 @@ class Navbar extends PageManager{
                 this.redirect("itemCategory", currentId);
                 return;
             }
-            
             const route = e.target.id.split('-')[0]
             if(route !== this.currentPage()) { this.redirect(route) } 
         } else {
             this.redirect('welcome')
         }
-    }
-
-    updateCart(e){
-        
     }
 
     async fetchAndRenderPageResources() {
