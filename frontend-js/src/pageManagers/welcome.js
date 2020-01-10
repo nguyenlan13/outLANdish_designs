@@ -10,8 +10,4 @@ class WelcomePage extends PageManager{
         `)
     }
 
-
-    // render(){
-    //     this.container.innerHTML = this.staticHTML
-    // }
 }

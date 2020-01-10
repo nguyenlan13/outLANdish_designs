@@ -8,8 +8,8 @@ class LoginPage extends PageManager{
 
     initBindingsAndEventListeners(){
         if(this.form){
-        this.form = this.container.querySelector('#login')
-        this.form.addEventListener('submit', this.login.bind(this))
+            this.form = this.container.querySelector('#login')
+            this.form.addEventListener('submit', this.login.bind(this))
         }
     }
 
@@ -17,7 +17,6 @@ class LoginPage extends PageManager{
         e.preventDefault()
         const inputs = Array.from(e.target.querySelectorAll('input'))
         const [email, password] = inputs.map(input => input.value)
-        console.log(email, password)
         const params = {
             account: {
                 email, password
@@ -44,7 +43,6 @@ class LoginPage extends PageManager{
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
             </div>
-        
             <button type="submit" class="btn btn-primary">Log In</button>
         </form>
         `)

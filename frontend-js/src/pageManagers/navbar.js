@@ -31,6 +31,10 @@ class Navbar extends PageManager{
         }
     }
 
+    updateCart(e){
+        
+    }
+
     async fetchAndRenderPageResources() {
         const navPart1 = (`
             <nav class="navbar fixed-top2 navbar-expand-lg navbar-light bg-light">

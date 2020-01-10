@@ -8,7 +8,7 @@ class CategoryAdapter{
     async getCategories(){
         try{
             const categoriesResponse = await fetch(`${this.baseURL}/categories`)
-            const  categoriesJson = await categoriesResponse.json()
+            const categoriesJson = await categoriesResponse.json()
         return categoriesJson
         }catch(error){
 
