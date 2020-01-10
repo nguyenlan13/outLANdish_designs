@@ -26,5 +26,4 @@ class BaseAdapter{
         }
         return baseHeaders
     }
-    
 }

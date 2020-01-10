@@ -11,7 +11,7 @@ class ItemAdapter{
             const itemJson = await itemResponse.json()
             return itemJson
         }catch(error){
+
         }
     }
-
 }

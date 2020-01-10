@@ -22,5 +22,4 @@ class SignupAdapter{
         })
         // this.baseAdapter.csrf_token = res.headers.get('set-cookie')
     }
-
 }

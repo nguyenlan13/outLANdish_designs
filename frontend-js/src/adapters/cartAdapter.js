@@ -11,11 +11,9 @@ class CartAdapter{
         const cartResponse = await fetch(`${this.baseURL}/carts/1`)
         const  cartJson = await cartResponse.json()
         return cartJson
-            console.log(cartJson)
+
         }catch(error){
-            console.log(error)
+            
         }
     }
-
-
 }
