@@ -6,14 +6,12 @@ class WelcomePage extends PageManager{
 
     get staticHTML(){
         return (`
-       
-                <h2> WELCOME PAGE </h2>
-  
+                <p><img class="card-img-top rounded float-left" style="width: 40rem; margin-right: 20px" src="Assets/OH_SALE_YES!.png"> ALL SALE ITEMS UNDER $20! </p>
         `)
     }
 
 
-    render(){
-        this.container.innerHTML = this.staticHTML
-    }
+    // render(){
+    //     this.container.innerHTML = this.staticHTML
+    // }
 }

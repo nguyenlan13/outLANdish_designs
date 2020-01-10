@@ -49,13 +49,4 @@ class LoginPage extends PageManager{
         </form>
         `)
     }
-
-
-
-
-
-
-//    render(){
-//         this.container.innerHTML = this.staticHTML
-//     }
 }

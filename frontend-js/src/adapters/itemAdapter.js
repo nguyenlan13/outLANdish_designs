@@ -9,6 +9,7 @@ class ItemAdapter{
         try{
             const itemResponse = await fetch(`${this.baseURL}/items/${currentId}`)
             const itemJson = await itemResponse.json()
+            return itemJson
         }catch(error){
         }
     }

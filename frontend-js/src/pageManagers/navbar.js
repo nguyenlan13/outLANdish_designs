@@ -3,8 +3,6 @@ class Navbar extends PageManager{
     constructor(container, adapter){
         super(container)
         this.adapter = new CategoryAdapter(adapter)
-        // this.initBindingsAndEventListeners()
-        // this.adapter = adapter
     }
 
     initBindingsAndEventListeners(){

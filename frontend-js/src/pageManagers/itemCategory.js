@@ -3,7 +3,6 @@ class ItemCategoryPage extends PageManager{
     constructor(container, adapter){
         super(container)
         this.adapter = new ItemCategoryAdapter(adapter)
-        // this.initBindingsAndEventListeners()
     }
 
     initBindingsAndEventListeners(){
@@ -50,21 +49,11 @@ class ItemCategoryPage extends PageManager{
     //     this.redirect('cart')
     // }
 
-    // async fetchAndRenderPageResources(){
-    //     // try{
-    //         const itemsCategory = await this.adapter.getCategoryItems()
-    //         console.log(itemsCategory)
-    //
-    //     return itemsCategory
-    //     // }catch(error){
-    //     //     
-    //     // }
-        
-    // }
+
     async fetchAndRenderPageResources(currentId) {
     // async buildHTML(currentId) {
             let output = '';
-            output += `<div class="card-group" style="width: 35rem;">`
+            output += `<div class="card-group" style="width: 50rem;">`
             let items = await this.adapter.getCategoryItems(currentId);
             console.log(items)
             for (let i = 0; i < items.length; i++) {
@@ -74,7 +63,7 @@ class ItemCategoryPage extends PageManager{
 
                 output += (`
                
-                    <div class="card mr-4" style="width: 15rem;">
+                    <div class="card mr-4" style="width: 45rem;">
                         <img class="card-img-top" src="${imgPath}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">${name}</h5>
@@ -99,11 +88,10 @@ class ItemCategoryPage extends PageManager{
     //     // this.container.innerHTML = this.staticHTML
     // }
 
-    // get staticHTML(){
-    //     return (`
-    //     <div class="loader"></div>
-       
-    //     `)
-    // }
+    get staticHTML(){
+        return (`
+        <div class="loader"></div>
+        `)
+    }
 
 }
