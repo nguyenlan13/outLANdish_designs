@@ -35,12 +35,16 @@ Rails.application.routes.draw do
                 resources :items, only: [:index]
             end
 
+            # get "/cart" => 'carts#show' do
+            #     resources :items, only: [:index]
+            # end
+
             # resources :carts
             # resources :categories
             # resources :items
             resources :cart_items, only: [:create, :destroy]
            
-
+            get "/cart" => 'carts#cart'
             get "/auth" => 'sessions#auth'
             get "/signup" => "accounts#new", as: "signup"
             post "/signup" => "accounts#create"
