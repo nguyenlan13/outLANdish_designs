@@ -28,10 +28,10 @@ class App{
         this.router.assignRedirect(this.pageManagerRedirect.bind(this))
         //this.router.assignRedirect(this.pageManagerRedirect)
         //this.router.assignCallback(this.pageManagerRedirect.bind(this), "redirect")
-        this.router.navbar.render();
-        // this.renderPage('welcome')
+        // this.router.navbar.render();
+        this.renderPage('welcome')
         // this.renderPage('cart')
-        this.renderPage('login')
+        // this.renderPage('login')
 
         //setTimeout(function() {
         //    this.renderPage(new ItemPage(this.pageContainer))
@@ -54,6 +54,7 @@ class App{
     initBindingsAndEventListeners(){
         this.container = document.querySelector('#app-container')
         this.navbarContainer = document.querySelector('#navbar-container')
+        // this.welcomeContainer = document.querySelector('#welcome-container')
         this.pageContainer = document.querySelector('#page-container')
     }
 
