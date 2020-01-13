@@ -14,7 +14,7 @@ class Router{
         }else {
             this.routes[page].render()
         }
-        //if(this.navbar){ this.navbar.render() }
+        if(this.navbar){ this.navbar.render() }
         this.currentPage = page
     }
 
