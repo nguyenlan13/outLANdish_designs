@@ -7,8 +7,6 @@ class ItemCategoryPage extends PageManager{
 
     initBindingsAndEventListeners(){
         this.container.onclick = this.handleClick.bind(this)
-        // this.container.onclick = this.updateCart.bind(this)
-        // this.container.addEventListener('click', this.updateCart.bind(this))
     }
 
     handleClick(e){
@@ -33,49 +31,6 @@ class ItemCategoryPage extends PageManager{
             // }
         }
     }
-
-    // updateCart(e){
-    //     if(e.target.tagName === "A"){
-    //         e.preventDefault()
-    //         if(e.target.querySelectorAll = '.add-cart'){
-    //             let counter = document.querySelector('#inc-num')
-                        
-    //             this.incrementCart = (num) => {
-    //                 let currentNumItems = parseInt(counter.innerText)
-    //                 let newCart = currentNumItems += num
-    //                 return newCart
-    //             }
-    //             document.querySelector('#inc-num').innerText = this.incrementCart(1)
-    //         }
-    //     }
-    // }
-
-    // handleDetailsClick(e){
-    //     if(e.target.tagName === "A"){
-    //         // console.log(e.target)
-    //         e.preventDefault()
-            
-    //         if(e.target.id.split('-')[0] == 'item'){
-    //             let currentId = e.target.id.split('-')[1]  
-    //             console.log(currentId)
-    //             // let route = ('item', currentId)   
-    //             // if(route !== this.currentPage()) { this.redirect(route) }   
-    //             this.redirect("item", currentId);
-    //         }
-    //     // e.preventDefault()
-    //     // console.log(e.target)
-    
-    //     // let currentId = e.target.className.split('-')[1]
-    //     // this.redirect("item", currentId);
-        
-    //     // this.redirect('item')
-    //     }
-    // }
-
-    // handleAddCartClick(e){
-    //     e.preventDefault()
-    //     this.redirect('cart')
-    // }
 
 
     async fetchAndRenderPageResources(currentId) {

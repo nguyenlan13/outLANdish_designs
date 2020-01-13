@@ -6,8 +6,8 @@ class CartPage extends PageManager{
     }
 
     initBindingsAndEventListeners(){
-        this.container.addEventListener('submit', this.handleClick.bind(this))
-        console.log("what")
+        this.container.onclick = this.handleClick.bind(this)
+        // this.container.addEventListener('submit', this.handleClick.bind(this))
     }
     
     get staticHTML(){
@@ -17,15 +17,15 @@ class CartPage extends PageManager{
     }
 
 
-    handleClick(e){
+    async handleClick(e){
         if(e.target.tagName === "A"){
             e.preventDefault()
             console.log(e.target)
             if(e.target.id.split('-')[0] == 'remove'){
-                let itemId = e.target.id.split('-')[1]
-                console.log(ItemId)
-                const deleteItem = this.adapter.removeFromCart(itemId)        
-                this.redirect("cart", itemtId);
+                let currentId = e.target.id.split('-')[1]
+                console.log(currentId)
+                const deleteItem = await this.adapter.removeFromCart(currentId)        
+                // this.redirect("cart", itemtId);
             // }else{
             //     if
             }
@@ -39,9 +39,9 @@ class CartPage extends PageManager{
         let output = '';
         output += `<div class="card-group">`
         let items = await this.adapter.showCartItems(currentId);
-console.log(currentId)
+// console.log(currentId)
         for (let i = 0; i < items.length; i++) {
-            let itemId = items[i].id;
+            let currentId = items[i].id;
             let name = items[i].name;
             let imgPath = items[i].item_path;
             let description = items[i].description
@@ -49,22 +49,21 @@ console.log(currentId)
             let size = items[i].size
             let price = items[i].price
             console.log(price)
-        // let params = 
             output += (`
-            <div class="card" style="width: 18rem">
-                <img class="card-img-top rounded float-left" style="width: 100%; margin-right: 20px" src=${imgPath} alt="Card image cap">
-                <div class="card-body">    
+            <div style="width: 50%">
+                <img class="card-img-top rounded float-left" style="width: 70%; margin-right: 20px" src=${imgPath} alt="Card image cap">
+                <div class="card-body" style="width: 50%">    
                     <h5 class="card-title">${name}</h5>
                         <p class="card-text">${description}</p>
                         <p class="card-text">${color}</p>
                         <p class="card-text">${size}</p>
                         <p class="card-text">$${price}</p>
-                        <a href="#" class="btn btn-primary remove-item" id="remove-${itemId}">Remove</a>
+                        <a href="#" class="btn btn-primary remove-item" id="remove-${currentId}">Remove</a>
                 </div>
             </div>
             `)           
         }
-        output +=`</div>`
+        output +=`<div> <a href="#" class="btn btn-primary" id="order-" style="margin-right: 20px">Checkout</a></div> </div>`
         this.container.innerHTML = (`${output}`)
     }
 }

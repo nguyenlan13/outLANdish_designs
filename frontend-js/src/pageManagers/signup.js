@@ -208,5 +208,4 @@ class SignupPage extends PageManager{
             </form>
         `)
     }
-
 }

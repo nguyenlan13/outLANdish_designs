@@ -35,7 +35,7 @@ class Navbar extends PageManager{
         const navPart1 = (`
             <nav class="navbar fixed-top2 navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">
-                <img id="brand-logo" src="assets/Outlandish-Designs-Neon-Lights-Black-rearranged.png">
+                <img id="brand-logo" src="assets/Outlandish_Designs_Neon_Lights_White.png">
             </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

@@ -7,10 +7,8 @@ class CartAdapter{
 
     async showCartItems(){
         try{
-        // const cartResponse = await fetch(`${this.baseURL}/accounts/${accountId}/carts/${cartId}`)
-        // const cartResponse = await fetch(`${this.baseURL}/carts/1/items`)
-            // const cartResponse = await fetch(`${this.baseURL}/carts/${currentId}/items`)
-            const cartResponse = await fetch(`${this.baseURL}/cart`)
+            const cartResponse = await fetch(`${this.baseURL}/carts/1/items`)
+            // const cartResponse = await fetch(`${this.baseURL}/cart`)
             console.log(cartResponse)
             const cartJson = await cartResponse.json()
             console.log(cartJson)
@@ -30,11 +28,11 @@ class CartAdapter{
 
     // }
 
-    async removeFromCart(itemId){
-        const res = await fetch(`${this.baseURL}/cart_items/${itemId}`, {
+    async removeFromCart(currentId){
+        const res = await fetch(`${this.baseURL}/cart_items/${currentId}`, {
             method: "DELETE",
             headers: this.headers,
-            body: JSON.stringify(itemId),
+            body: JSON.stringify({item_id: currentId}),
             credentials: 'include'
             
         })

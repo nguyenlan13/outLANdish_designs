@@ -7,18 +7,11 @@ class LoginPage extends PageManager{
 
 
     initBindingsAndEventListeners(){
-        // if(this.form){
+        if(this.form){
             this.form = this.container.querySelector('#login')
             this.form.addEventListener('submit', this.login.bind(this))
-        // }
+        }
     }
-
-    // fetchAndRenderPageResources(){
-    //     if(this.form){
-    //         this.form = this.container.querySelector('#login')
-    //         this.form.addEventListener('submit', this.login.bind(this))
-    //     }
-    // }
 
     async login(e){
         e.preventDefault()
@@ -34,7 +27,7 @@ class LoginPage extends PageManager{
             await this.adapter.login(params)
             this.redirect('cart')
           }catch(error){
-        //     this.handleError(error)
+            this.handleError(error)
           }
     } 
    
