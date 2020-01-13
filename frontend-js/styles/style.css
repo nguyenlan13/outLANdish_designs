@@ -11,6 +11,10 @@ body {
     font-size: 75px
     }
 
+#welcome-pic {
+    width: 350px;
+    }
+
 .nav-text {
     color: #e9ecef
 }
@@ -27,12 +31,12 @@ body {
 
 #container {
     width: 1000px;
-    /* margin: auto; */
+    margin: auto;
     margin-top: 50px;
   }
 
 #brand-logo {
-    width: 330px;
+    width: 310px;
   }
 
 #welcome-img {
