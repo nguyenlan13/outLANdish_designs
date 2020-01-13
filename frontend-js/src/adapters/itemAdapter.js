@@ -5,6 +5,10 @@ class ItemAdapter{
         this.baseURL = this.baseAdapter.baseURL
     }
 
+    get headers(){
+        return this.baseAdapter.headers
+    }
+
     async getItem(currentId){
         try{
             const itemResponse = await fetch(`${this.baseURL}/items/${currentId}`)
@@ -13,5 +17,14 @@ class ItemAdapter{
         }catch(error){
 
         }
+    }
+
+    async addToCart(currentId){
+        const res = await fetch(`${this.baseURL}/cart_items`, {
+            method: "POST",
+            headers: this.headers,
+            body: JSON.stringify({item_id: currentId}),
+            credentials: 'include'
+        })
     }
 }
