@@ -3,9 +3,10 @@ class ApplicationController < ActionController::API
     include ActionController::RequestForgeryProtection
 
     protect_from_forgery with: :exception
-    # before_action :set_access_control_headers
     before_action :set_csrf_cookie
+    # before_action :set_access_control_headers
     # before_action :current_cart
+    # before_action :get_cart
 
     def log_in(account)
         session[:account_id] = account.id
@@ -31,7 +32,21 @@ class ApplicationController < ActionController::API
         end
     end
 
-
+    def current_cart
+        if session[:cart_id]
+          cart = Cart.find_by(id: session[:cart_id])
+          if cart.present?
+            current_cart = cart
+          else
+            session[:cart_id] = nil
+          end
+        end
+  
+        if session[:cart_id] == nil
+          current_cart = Cart.create
+          session[:cart_id] = current_cart.id
+        end
+      end
     
         private
     
@@ -43,21 +58,21 @@ class ApplicationController < ActionController::API
     #     puts "hello"
     # end
 
-    def current_cart
-      if session[:cart_id]
-        cart = Cart.find_by(id: session[:cart_id])
-        if cart.present?
-          current_cart = cart
-        else
-          session[:cart_id] = nil
-        end
-      end
+    # def current_cart
+    #   if session[:cart_id]
+    #     cart = Cart.find_by(id: session[:cart_id])
+    #     if cart.present?
+    #       current_cart = cart
+    #     else
+    #       session[:cart_id] = nil
+    #     end
+    #   end
 
-      if session[:cart_id] == nil
-        current_cart = Cart.create
-        session[:cart_id] = current_cart.id
-      end
-    end
+    #   if session[:cart_id] == nil
+    #     current_cart = Cart.create
+    #     session[:cart_id] = current_cart.id
+    #   end
+    # end
 
     def set_csrf_cookie
         cookies["CSRF-TOKEN"] = form_authenticity_token
