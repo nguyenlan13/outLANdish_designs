@@ -6,7 +6,12 @@ class WelcomePage extends PageManager{
 
     get staticHTML(){
         return (`
-                <p><img class="card-img-top rounded float-left" style="width: 40rem; margin-right: 20px" src="Assets/OH_SALE_YES!.png"> ALL SALE ITEMS UNDER $20! </p>
+                <div>
+                <img id="welcome-img" align="left" src="assets/OH_SALE_YES!_60pt.png"> 
+                <div class="welcome-font" align="middle">ALL HOLIDAY</div>
+                <div class="welcome-font" align="middle">ITEMS</div>
+                <div class="welcome-font" align="middle"> 50% OFF!</div>
+                </div>
         `)
     }
 

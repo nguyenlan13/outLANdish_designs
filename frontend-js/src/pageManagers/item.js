@@ -6,9 +6,14 @@ class ItemPage extends PageManager{
     }
 
     initBindingsAndEventListeners(){
-
+        this.container.onclick = this.addItem.bind(this)
+        // this.container.onclick = this.updateCart.bind(this)
+        // this.container.addEventListener('submit', this.addItem.bind(this))
+        // this.container.onSubmit = this.addItem.bind(this)
+        // this.incCartItems = this.container.querySelector('.add-cart')
+        // this.incCartItems.addEventListener('click', this.updateCart.bind(this))
+        // this.container.onSubmit = this.addItem.bind(this)
     }
-
 
     get staticHTML(){
         return (`
@@ -16,6 +21,60 @@ class ItemPage extends PageManager{
         <div> Items Page </div>
         
         `)
+    }
+
+    async addItem(e){
+        if(e.target.tagName === "A"){
+            e.preventDefault()
+            console.log(e.target)
+            if(e.target.id.split('-')[0] = 'add' ){
+                // e.preventDefault()
+                console.log(e.target)
+                let currentId = e.target.id.split('-')[1]
+                console.log(currentId)
+                // const itemToAdd = Array.from(e.target.querySelectorAll('input'))
+                // const [email, password] = inputs.map(input => input.value)
+                // const params = {
+                //     account: {
+                //         email, password
+                //     }
+                // }
+
+                // try{
+                //     await this.adapter.addToCart(currentId)
+                //   }catch(error){
+                // //     this.handleError(error)
+                //   }
+
+
+                this.itemToAdd = await this.adapter.addToCart(currentId)
+                console.log(currentId)
+                // let itemToAdd = await this.adapter.addToCart(currentId)      
+                // console.log(itemToAdd)    
+                // this.redirect("item", currentId);
+                // return this.itemToAdd(currentId)
+            }
+        
+            // this.itemToAdd(currentId) = await this.adapter.addToCart(currentId)
+            // return itemToAdd
+            // console.log(itemToAdd)
+        }
+    }
+
+    updateCart(e){
+        if(e.target.tagName === "A"){
+            e.preventDefault()
+            if(e.target.querySelector = '.add-cart'){
+                let counter = document.querySelector('#inc-num')
+                        
+                this.incrementCart = (num) => {
+                    let currentNumItems = parseInt(counter.innerText)
+                    let newCart = currentNumItems += num
+                    return newCart
+                }
+                document.querySelector('#inc-num').innerText = this.incrementCart(1)
+            }
+        }
     }
 
 
@@ -34,7 +93,7 @@ class ItemPage extends PageManager{
                         <p class="card-text">${item.color}</p>
                         <p class="card-text">${item.size}</p>
                         <p class="card-text">$${item.price}</p>
-                        <a href="#" class="btn btn-primary add-cart">Add to cart</a>
+                        <a href="#" class="btn btn-primary add-cart" id=add-${item.id}>Add to cart</a>
                         </span>
                 </div>
         

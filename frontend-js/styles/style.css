@@ -5,19 +5,49 @@ body {
     font-weight: 300;
   }
   
-  #container {
+.welcome-font {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 75px
+    }
+
+.nav-text {
+    color: #e9ecef
+}
+
+.nav-font {
+    font-weight: 600;
+    font-size: 1.5rem;
+   
+    }
+
+.nav-background{
+    background-color: #3f4850
+}
+
+#container {
     width: 1000px;
-    margin: auto;
+    /* margin: auto; */
     margin-top: 50px;
   }
 
 #brand-logo {
-    width: 200px;
+    width: 330px;
+  }
+
+#welcome-img {
+    width: 500px;
   }
 
 .cart-icon {
-    width: 25px;
+    width: 35px;
 }  
+
+.how-right img {
+    float: left;
+    margin-right: 20px;
+    vertical-align :middle;
+}
 
 .loader {
     border: 16px solid #f3f3f3; /* Light grey */
@@ -34,4 +64,3 @@ body {
 }
 
 
-  

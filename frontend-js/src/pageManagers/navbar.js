@@ -6,7 +6,8 @@ class Navbar extends PageManager{
     }
 
     initBindingsAndEventListeners(){
-        this.container.addEventListener('click', this.handleClick.bind(this))
+        // this.container.addEventListener('click', this.handleClick.bind(this))
+        this.container.onclick = this.handleClick.bind(this)
     }
 
     get loggedIn(){
@@ -32,9 +33,9 @@ class Navbar extends PageManager{
 
     async fetchAndRenderPageResources() {
         const navPart1 = (`
-            <nav class="navbar fixed-top2 navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar fixed-top2 navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">
-                <img id="brand-logo" src="assets/Outlandish_logo.png">
+                <img id="brand-logo" src="assets/Outlandish-Designs-Neon-Lights-Black-rearranged.png">
             </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -46,10 +47,11 @@ class Navbar extends PageManager{
         const navPart3 = (`
                 </ul>
                     <span class="navbar-text">
-                           <div class="navbar-nav"> <a class="nav-link" id="signup-link" href="#" >SIGN UP</a> <span style="padding-top: 6px">|</span> <a class="nav-link" id="login-link" href="#" >LOG IN</a> </div>
-                                <a class="btn btn-primary nav-link " id="cart-link" href="*" >
-                                    <img class="cart-icon" src="assets/Shopping_cart_icon.png">  CART
-                                    <span class="badge badge-light">4</span>
+                           <div class="navbar-nav"> 
+                           <a class="nav-link" id="signup-link" href="#" >SIGN UP</a> <span style="padding-top: 6px">|</span> <a class="nav-link" id="login-link" href="#" >LOG IN</a> </div>
+                                <a class="btn btn-primary nav-link" style="width: 150px" id="cart-link" href="*" >
+                                <img class="cart-icon" src="assets/Shopping_cart_icon.png">
+                                    <span class="badge badge-light" id="inc-num">0</span>
                                 </a>
                     </span>
                 </div>
@@ -65,7 +67,7 @@ class Navbar extends PageManager{
             
             output += (`                
                      <li class="nav-item">
-                         <a class="nav-link" id="itemCategory-${categoryId}-${name}" href="#" >${name}</a>
+                         <a class="nav-text nav-link nav-font" id="itemCategory-${categoryId}-${name}" href="#" >${name}</a>
                      </li>
             `)
         }

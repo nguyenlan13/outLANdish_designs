@@ -32,7 +32,7 @@ class LoginPage extends PageManager{
         console.log(params)
         try{
             await this.adapter.login(params)
-            this.redirect('welcome')
+            this.redirect('cart')
           }catch(error){
         //     this.handleError(error)
           }

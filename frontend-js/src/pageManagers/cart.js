@@ -7,6 +7,7 @@ class CartPage extends PageManager{
 
     initBindingsAndEventListeners(){
         this.container.addEventListener('submit', this.handleClick.bind(this))
+        console.log("what")
     }
     
     get staticHTML(){
@@ -19,11 +20,12 @@ class CartPage extends PageManager{
     handleClick(e){
         if(e.target.tagName === "A"){
             e.preventDefault()
-            
-            if(e.target.id.split('-')[0] == 'item'){
-                let currentId = e.target.id.split('-')[1]
-                const deleteItem = this.adapter.removeFromCart(currentId)        
-                // this.redirect("item", currentId);
+            console.log(e.target)
+            if(e.target.id.split('-')[0] == 'remove'){
+                let itemId = e.target.id.split('-')[1]
+                console.log(ItemId)
+                const deleteItem = this.adapter.removeFromCart(itemId)        
+                this.redirect("cart", itemtId);
             // }else{
             //     if
             }
@@ -37,7 +39,7 @@ class CartPage extends PageManager{
         let output = '';
         output += `<div class="card-group">`
         let items = await this.adapter.showCartItems(currentId);
-
+console.log(currentId)
         for (let i = 0; i < items.length; i++) {
             let itemId = items[i].id;
             let name = items[i].name;
@@ -46,7 +48,7 @@ class CartPage extends PageManager{
             let color = items[i].color
             let size = items[i].size
             let price = items[i].price
-            
+            console.log(price)
         // let params = 
             output += (`
             <div class="card" style="width: 18rem">
@@ -57,22 +59,12 @@ class CartPage extends PageManager{
                         <p class="card-text">${color}</p>
                         <p class="card-text">${size}</p>
                         <p class="card-text">$${price}</p>
-                        <a href="#" class="btn btn-primary remove-item" id="item-${itemId}">Remove</a>
+                        <a href="#" class="btn btn-primary remove-item" id="remove-${itemId}">Remove</a>
                 </div>
             </div>
-            `)
-            
-           
+            `)           
         }
         output +=`</div>`
         this.container.innerHTML = (`${output}`)
     }
-
-
-
-
-
-
-
-   
 }
