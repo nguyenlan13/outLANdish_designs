@@ -31,11 +31,7 @@ Rails.application.routes.draw do
                 resources :wishlists, only: [:show]
             end
 
-            resources :carts do
-                resources :items, only: [:index]
-            end
-
-            # get "/cart" => 'carts#show' do
+            # resources :carts do
             #     resources :items, only: [:index]
             # end
 
@@ -44,7 +40,14 @@ Rails.application.routes.draw do
             # resources :items
             resources :cart_items, only: [:create, :destroy]
            
-            get "/cart" => 'carts#cart'
+            get "/mycart" => 'carts#cart'
+
+            resources :carts, only: [:cart] do
+                resources :items, only: [:index] 
+            end
+
+            get "/mycart/items" => 'items#example'
+         
             get "/auth" => 'sessions#auth'
             get "/signup" => "accounts#new", as: "signup"
             post "/signup" => "accounts#create"
@@ -53,30 +56,4 @@ Rails.application.routes.draw do
             delete "/logout" => "sessions#destroy"
         end
     end
-
-    # namespace :api do
-    #     namespace :v1 do
-    #         resources :carts do
-    #             resources :items
-    #         end
-    #     end
-    # end
-
-    # namespace :api do
-    #     namespace :v1 do
-    #         resources :items do
-    #             resources :reviews
-    #         end
-    #     end
-    # end
-    
-    # namespace :api do
-    #     namespace :v1 do
-    #         get "/signup" => "accounts#new", as: "signup"
-    #         get "/login" => "sessions#new", as: "login"
-    #         post "/login" => "sessions#create"
-    #         delete "/logout" => "sessions#destroy"
-    #     end
-    # end
-
 end

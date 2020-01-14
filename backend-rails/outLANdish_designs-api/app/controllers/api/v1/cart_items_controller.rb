@@ -4,7 +4,7 @@ class Api::V1::CartItemsController < ApplicationController
 
     def create
         cart = get_cart
-        cart_item = CartItem.new(cart: cart, item: Item.find(params[:cart_item][:item_id]))
+        cart_item = CartItem.new(cart: cart, item: Item.find(params[:item_id]))
         if cart_item.save
             # render json: cart_item, status 200
             render json: { message: "Item successfully added to cart!", status: 200}

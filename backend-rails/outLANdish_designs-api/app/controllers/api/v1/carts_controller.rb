@@ -1,10 +1,10 @@
 class Api::V1::CartsController < ApplicationController
 
-    def index
-        cart = Cart.all
+    # def index
+    #     cart = Cart.all
 
-        render json: cart
-    end
+    #     render json: cart
+    # end
 
     def create
         if params[:account_id]
@@ -23,19 +23,20 @@ class Api::V1::CartsController < ApplicationController
     
     def cart
         @cart = get_cart
+        # numitems = @cart.items.length
         render json: @cart, include: [:items]
     end
 
 
-    def show
-        @cart = get_cart
-        # @cart = current_cart
+    # def show
+    #     @cart = get_cart
+    #     # @cart = current_cart
        
-        # @cart = Cart.find(params[:id])
-        # @item = @cart.items.build
+    #     # @cart = Cart.find(params[:id])
+    #     # @item = @cart.items.build
 
-        render json: @cart, include: [:items]
-    end
+    #     render json: @cart, include: [:items]
+    # end
 
   
 end
