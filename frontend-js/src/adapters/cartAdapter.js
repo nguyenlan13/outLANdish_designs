@@ -7,8 +7,8 @@ class CartAdapter{
 
     async showCartItems(){
         try{
-            const cartResponse = await fetch(`${this.baseURL}/carts/1/items`)
-            // const cartResponse = await fetch(`${this.baseURL}/cart`)
+            // const cartResponse = await fetch(`${this.baseURL}/carts/1/items`)
+            const cartResponse = await fetch(`${this.baseURL}/mycart/items`)
             console.log(cartResponse)
             const cartJson = await cartResponse.json()
             console.log(cartJson)

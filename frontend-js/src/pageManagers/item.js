@@ -29,21 +29,43 @@ class ItemPage extends PageManager{
             if(e.target.id.split('-')[0] = 'add' ){
                 // let counter = document.querySelector('#inc-num')
                 let currentId = e.target.id.split('-')[1]
-
                 this.itemToAdd = await this.adapter.addToCart(currentId)
             }
-                if(e.target.querySelector = '.add-cart'){
-                    let counter = document.querySelector('#inc-num')
+
+              
+                // if(e.target.querySelector = '.add-cart'){
+                    
                             
-                    this.incrementCart = (num) => {
-                        let currentNumItems = parseInt(counter.innerText)
-                        let newCart = currentNumItems += num
-                        return newCart
-                    }
-                    document.querySelector('#inc-num').innerText = this.incrementCart(1)
-                }
-            
+                //     this.incrementCart = (num) => {
+                //         let currentNumItems = parseInt(counter.innerText)
+                //         let newCart = currentNumItems += num
+                //         return newCart
+                //     }
+                
+                // let counter = document.querySelector('#inc-num').innerText
+                // console.log(counter)
+                //  incrementCart = () => {
+
+
+                // let cartItemCount = await this.adapter.getNumOfItems()
+                // let currentCart = cartItemCount.length
+                // console.log(currentCart)
+                        // counter.innerText = currentCart
+                            // let currentCart = document.querySelector('#inc-num').innerText
+                            // let newCart = currentCart += num
+                            // let newCart = currentCart++
+                            // return newCart
+                            // counter = 
+                            
+                //  }
+                // let counter = currentCart++
+                // console.log(counter)
+            // }
+        //  document.querySelector('#inc-num').innerText = `${currentCart}`
+         
+            // }
         }
+
     }
 
     // updateCart(e){

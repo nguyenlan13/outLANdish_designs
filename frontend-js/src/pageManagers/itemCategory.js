@@ -36,17 +36,18 @@ class ItemCategoryPage extends PageManager{
     async fetchAndRenderPageResources(currentId) {
         let output = '';
 
-        output += `<div class="card-group" style="width: 50rem;">`
-
+        
         let items = await this.adapter.getCategoryItems(currentId);
             for (let i = 0; i < items.length; i++) {
                 let itemId = items[i].id;
                 let name = items[i].name;
                 let imgPath = items[i].item_path;
-
-                output += (`
                 
-                    <div class="card mr-4" style="width: 45rem;">
+                output += (`<div class="row">
+
+               
+                <div class="col mb-4">
+                    <div class="card h-100>
                         <img class="card-img-top" src="${imgPath}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">${name}</h5>
@@ -55,6 +56,8 @@ class ItemCategoryPage extends PageManager{
                             
                         </div>
                     </div>
+                    </div>
+                    </div>
                 `)
             }
             // remove button?
@@ -62,6 +65,45 @@ class ItemCategoryPage extends PageManager{
         output += `</div>`
         this.container.innerHTML = (`${output}`);
     }
+
+    // get staticHTML(){
+    //     return (`
+    //         <div class="loader"></div>
+    //     `)
+    // }
+
+
+
+
+    // async fetchAndRenderPageResources(currentId) {
+    //     let output = '';
+
+    //     output += `<div class="card-group" style="width: 50rem;">`
+
+    //     let items = await this.adapter.getCategoryItems(currentId);
+    //         for (let i = 0; i < items.length; i++) {
+    //             let itemId = items[i].id;
+    //             let name = items[i].name;
+    //             let imgPath = items[i].item_path;
+
+    //             output += (`
+                
+    //                 <div class="card mr-4" style="width: 45rem;">
+    //                     <img class="card-img-top" src="${imgPath}" alt="Card image cap">
+    //                     <div class="card-body">
+    //                         <h5 class="card-title">${name}</h5>
+    //                             <p class="card-text"> </p>
+    //                             <a href="#" class="btn btn-primary details" id="item-${itemId}">Details</a>
+                            
+    //                     </div>
+    //                 </div>
+    //             `)
+    //         }
+    //         // remove button?
+    //             // <a href="#" class="btn btn-primary add-cart">Add to cart</a>/
+    //     output += `</div>`
+    //     this.container.innerHTML = (`${output}`);
+    // }
 
     get staticHTML(){
         return (`

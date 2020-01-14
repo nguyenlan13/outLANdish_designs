@@ -26,8 +26,10 @@ class CartPage extends PageManager{
                 console.log(currentId)
                 const deleteItem = await this.adapter.removeFromCart(currentId)        
                 // this.redirect("cart", itemtId);
-            // }else{
-            //     if
+            }else{
+                if(e.target.id.split('-')[0] == 'order'){
+                    this.redirect("login")
+                }
             }
         }
     }

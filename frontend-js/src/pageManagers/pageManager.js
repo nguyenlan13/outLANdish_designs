@@ -4,7 +4,6 @@ class PageManager{
 
     constructor(container){
         this.container = container
-        // this.initBindingsAndEventListeners()
     }
 
     initBindingsAndEventListeners(){

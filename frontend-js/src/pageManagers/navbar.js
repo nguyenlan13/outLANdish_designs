@@ -32,6 +32,11 @@ class Navbar extends PageManager{
     }
 
     async fetchAndRenderPageResources() {
+       this.renderNav()
+       this.getCurrentItemCount()
+    }
+
+    async renderNav(){
         const navPart1 = (`
             <nav class="navbar fixed-top2 navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">
@@ -47,9 +52,9 @@ class Navbar extends PageManager{
         const navPart3 = (`
                 </ul>
                     <span class="navbar-text">
-                           <div class="navbar-nav"> 
-                           <a class="nav-link" id="signup-link" href="#" >SIGN UP</a> <span style="padding-top: 6px">|</span> <a class="nav-link" id="login-link" href="#" >LOG IN</a> </div>
-                                <a class="btn btn-primary nav-link" style="width: 150px" id="cart-link" href="*" >
+                        <div class="navbar-nav"> 
+                        <a class="nav-link" id="signup-link" href="#" >SIGN UP</a> <span style="padding-top: 6px">|</span> <a class="nav-link" id="login-link" href="#" >LOG IN</a> </div>
+                                <a class="btn btn-primary nav-link" style="width: 150px" id="cart-link" href="#" >
                                 <img class="cart-icon" src="assets/Shopping_cart_icon.png">
                                     <span class="badge badge-light" id="inc-num">0</span>
                                 </a>
@@ -66,12 +71,20 @@ class Navbar extends PageManager{
             let name = categories[i].name;
             
             output += (`                
-                     <li class="nav-item">
-                         <a class="nav-text nav-link nav-font" id="itemCategory-${categoryId}-${name}" href="#" >${name}</a>
-                     </li>
+                    <li class="nav-item">
+                        <a class="nav-text nav-link nav-font" id="itemCategory-${categoryId}-${name}" href="#" >${name}</a>
+                    </li>
             `)
         }
         this.container.innerHTML = (`${navPart1}`) + (`${output}`) + (`${navPart3}`);
+    }
+
+    async getCurrentItemCount(){
+        let cartItemCount = await this.adapter.getNumOfItems()
+        console.log(cartItemCount)
+        let currentCart = cartItemCount.items.length
+        console.log(currentCart)
+        document.querySelector('#inc-num').innerText = `${currentCart}`
     }
 
     get staticHTML(){    

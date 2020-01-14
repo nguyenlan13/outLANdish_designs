@@ -12,7 +12,7 @@ class WelcomePage extends PageManager{
                 <div class="welcome-font" align="middle">ITEMS</div>
                 <div class="welcome-font" align="middle"> 50% OFF!</div>
                 <div align="middle"> Use Code: SALE</div>
-                <img align="middle" id="welcome-pic" src="assets/BC-kr300130_Holiday_Tilt.png">
+                <a><img align="right" id="welcome-pic" src="assets/BC-kr300130_Holiday_Tilt.png"></a>
                 </div>
         `)
     }
