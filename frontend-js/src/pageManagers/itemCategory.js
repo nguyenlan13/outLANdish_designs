@@ -43,12 +43,12 @@ class ItemCategoryPage extends PageManager{
                 let name = items[i].name;
                 let imgPath = items[i].item_path;
                 
-                output += (`<div class="row">
+                output += (`
 
-               
+                <div class="row row-cols-1 row-cols-md-3">
                 <div class="col mb-4">
-                    <div class="card h-100>
-                        <img class="card-img-top" src="${imgPath}" alt="Card image cap">
+                  <div class="card h-100">
+                        <img class="card-img-top" src="${imgPath}">
                         <div class="card-body">
                             <h5 class="card-title">${name}</h5>
                                 <p class="card-text"> </p>

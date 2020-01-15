@@ -22,21 +22,23 @@ class Navbar extends PageManager{
             if(e.target.id.split('-')[0] == 'itemCategory'){
                 let currentId = e.target.id.split('-')[1]                
                 this.redirect("itemCategory", currentId);
-                return;
+                // return;
             }
             const route = e.target.id.split('-')[0]
             if(route !== this.currentPage()) { this.redirect(route) } 
-        } else {
-            this.redirect('welcome')
-        }
+            console.log(route)
+        } 
+        // else {
+        //     this.redirect('welcome')
+        // }
     }
 
     async fetchAndRenderPageResources() {
-       this.renderNav()
-       this.getCurrentItemCount()
-    }
+    //    this.renderNav()
+    //    this.getCurrentItemCount()
+    // }
 
-    async renderNav(){
+    // async renderNav(){
         const navPart1 = (`
             <nav class="navbar fixed-top2 navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">
@@ -79,13 +81,19 @@ class Navbar extends PageManager{
         this.container.innerHTML = (`${navPart1}`) + (`${output}`) + (`${navPart3}`);
     }
 
-    async getCurrentItemCount(){
-        let cartItemCount = await this.adapter.getNumOfItems()
-        console.log(cartItemCount)
-        let currentCart = cartItemCount.items.length
-        console.log(currentCart)
-        document.querySelector('#inc-num').innerText = `${currentCart}`
-    }
+
+    // async getCurrentItemCount(){
+    //     let cartItemCount = await this.adapter.getNumOfItems()
+    //     console.log(cartItemCount)
+    //     let currentCart = cartItemCount.items.length
+    //     console.log(currentCart)
+    //     document.querySelector('#inc-num').innerText = `${currentCart}`
+    // }
+
+    // async showItemsInCart(){
+    //    let cartNumber = document.getElementById('inc_num')
+    //    let get
+    // }
 
     get staticHTML(){    
         return (`

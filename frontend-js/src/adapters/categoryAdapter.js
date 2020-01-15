@@ -15,17 +15,30 @@ class CategoryAdapter{
         }
     }
 
-    async getNumOfItems(){
-        try{
-            const cartResponse = await fetch(`${this.baseURL}/mycart`)
-            console.log(cartResponse)
-            const cartJson = await cartResponse.json()
-            console.log(cartJson)
-            return cartJson
-        }catch(error){
+    // async getNumOfItems(){
+    //     try{
+    //         const cartResponse = await fetch(`${this.baseURL}/mycart`)
+    //         console.log(cartResponse)
+    //         const cartJson = await cartResponse.json()
+    //         console.log(cartJson)
+    //         return cartJson
+    //     }catch(error){
 
-        }
-    }
+    //     }
+    // }
 
+
+    // async showCartItems(){
+    //     try{
+    //         // const cartResponse = await fetch(`${this.baseURL}/carts/1/items`)
+    //         const cartResponse = await fetch(`${this.baseURL}/mycart`)
+    //         // console.log(cartResponse)
+    //         const cartJson = await cartResponse.json()
+    //         console.log(cartJson)
+    //         return cartJson
+    //     }catch(error){
+    //         console.log(error.message)
+    //     }
+    // }
 
 }

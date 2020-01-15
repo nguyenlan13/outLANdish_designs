@@ -4,13 +4,19 @@ class Api::V1::CartItemsController < ApplicationController
 
     def create
         cart = get_cart
+        # byebug
         cart_item = CartItem.new(cart: cart, item: Item.find(params[:item_id]))
         if cart_item.save
             # render json: cart_item, status 200
-            render json: { message: "Item successfully added to cart!", status: 200}
+            render json: { message: "Item successfully added to cart!", error: false, cart: cart_item.cart.items.length}
         else
             render json: { message: "Sorry, item could not be added to cart. Please try again.", error: true }
         end
+    end
+
+    def show
+        cart = get_cart
+        
     end
 
     def destroy
@@ -22,6 +28,4 @@ class Api::V1::CartItemsController < ApplicationController
             render json: { message: "Sorry, item was not removed from cart. Please try again.", error: true}
         end
     end
-
-
 end

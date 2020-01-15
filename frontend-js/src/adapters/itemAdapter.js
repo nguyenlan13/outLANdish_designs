@@ -25,8 +25,8 @@ class ItemAdapter{
             headers: this.headers,
             body: JSON.stringify({item_id: currentId}),
             credentials: 'include'
-        })
-        console.log(res)
+        }) 
+        return res.json()
     }
 
 

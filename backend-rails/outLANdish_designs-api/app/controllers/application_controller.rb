@@ -13,6 +13,7 @@ class ApplicationController < ActionController::API
     end
 
     def current_account
+
         Account.find_by(id: session[:account_id])
     end
 
@@ -21,32 +22,41 @@ class ApplicationController < ActionController::API
     end
 
     def get_cart
+        # byebug
+        # puts "#{session}"
         if logged_in?
+            # puts "is logged in"
             current_account.cart
         elsif session[:cart_id]
-            Cart.find(session[:cart_id])
+            # puts "has cart_id in session"
+            # puts session[:cart_id]
+            cart = Cart.find(session[:cart_id])
+            # puts "#{session}"
         else
+            # puts "creating cart"
             cart = Cart.create
+            # puts cart.id
             session[:cart_id] = cart.id
-            cart
+            # cart
         end
+        return cart
     end
 
-    def current_cart
-        if session[:cart_id]
-          cart = Cart.find_by(id: session[:cart_id])
-          if cart.present?
-            current_cart = cart
-          else
-            session[:cart_id] = nil
-          end
-        end
+    # def current_cart
+    #     if session[:cart_id]
+    #       cart = Cart.find_by(id: session[:cart_id])
+    #       if cart.present?
+    #         current_cart = cart
+    #       else
+    #         session[:cart_id] = nil
+    #       end
+    #     end
   
-        if session[:cart_id] == nil
-          current_cart = Cart.create
-          session[:cart_id] = current_cart.id
-        end
-      end
+    #     if session[:cart_id] == nil
+    #       current_cart = Cart.create
+    #       session[:cart_id] = current_cart.id
+    #     end
+    #   end
     
         private
     

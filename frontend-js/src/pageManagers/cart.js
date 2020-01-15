@@ -3,6 +3,7 @@ class CartPage extends PageManager{
     constructor(container, adapter){
         super(container)
         this.adapter = new CartAdapter(adapter)
+        // this.showItemsInCart()
     }
 
     initBindingsAndEventListeners(){
@@ -35,15 +36,32 @@ class CartPage extends PageManager{
     }
 
 
+    // async showItemsInCart(){
+    //     let thing = document.getElementById('testing').addEventListener('click', e =>{
+    //         console.log("hello")
+    //         let items = this.adapter.showCartItems()
+    //         console.log(items.item)
+        
+    //         // let items = this.adapter.showCartItems()
+    //         // console.log(items)
+    //     })
+    
+    //  }
 
+     async fetchAndRenderPageResources(page, currentId){
+        this.cartHtml(currentId)
+        // this.showItemsInCart()
+     }
 
-    async fetchAndRenderPageResources(currentId){
+//     async fetchAndRenderPageResources(page, currentId){
+    async cartHtml(currentId){
         let output = '';
         output += `<div class="card-group">`
         let items = await this.adapter.showCartItems(currentId);
-// console.log(currentId)
+console.log(currentId)
+console.log(items)
         for (let i = 0; i < items.length; i++) {
-            let currentId = items[i].id;
+            let itemId = items[i].id;
             let name = items[i].name;
             let imgPath = items[i].item_path;
             let description = items[i].description
@@ -60,7 +78,7 @@ class CartPage extends PageManager{
                         <p class="card-text">${color}</p>
                         <p class="card-text">${size}</p>
                         <p class="card-text">$${price}</p>
-                        <a href="#" class="btn btn-primary remove-item" id="remove-${currentId}">Remove</a>
+                        <a href="#" class="btn btn-primary remove-item" id="remove-${itemId}">Remove</a>
                 </div>
             </div>
             `)           

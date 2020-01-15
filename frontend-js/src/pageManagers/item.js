@@ -23,6 +23,11 @@ class ItemPage extends PageManager{
         `)
     }
 
+
+    
+
+
+
     async addItem(e){
         if(e.target.tagName === "A"){
             e.preventDefault()
@@ -30,6 +35,7 @@ class ItemPage extends PageManager{
                 // let counter = document.querySelector('#inc-num')
                 let currentId = e.target.id.split('-')[1]
                 this.itemToAdd = await this.adapter.addToCart(currentId)
+                console.log(this.itemToAdd)
             }
 
               

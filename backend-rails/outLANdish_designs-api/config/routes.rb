@@ -40,13 +40,13 @@ Rails.application.routes.draw do
             # resources :items
             resources :cart_items, only: [:create, :destroy]
            
-            get "/mycart" => 'carts#cart'
+            get "/mycart" => 'carts#mycart'
 
-            resources :carts, only: [:cart] do
-                resources :items, only: [:index] 
-            end
+            # resources :carts, path: '/mycart' do
+            #     resources :items, only: [:index] 
+            # end
 
-            get "/mycart/items" => 'items#example'
+            # get "/mycart/items" => 'items#example'
          
             get "/auth" => 'sessions#auth'
             get "/signup" => "accounts#new", as: "signup"

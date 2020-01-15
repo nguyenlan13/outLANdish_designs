@@ -16,6 +16,5 @@ class LoginAdapter {
             body: JSON.stringify(params),
             credentials: 'include'
         })
-
     }
 }
