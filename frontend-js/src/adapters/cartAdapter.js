@@ -14,7 +14,7 @@ class CartAdapter{
             // const cartResponse = await fetch(`${this.baseURL}/carts/1/items`)
             const cartResponse = await fetch(`${this.baseURL}/mycart`)
             // const cartResponse = await fetch(`${this.baseURL}/carts/${currentId}`)
-            // console.log(cartResponse)
+            console.log(cartResponse)
             const cartJson = await cartResponse.json()
             console.log(cartJson)
             return cartJson

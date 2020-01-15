@@ -13,7 +13,6 @@ class ApplicationController < ActionController::API
     end
 
     def current_account
-
         Account.find_by(id: session[:account_id])
     end
 
@@ -37,9 +36,9 @@ class ApplicationController < ActionController::API
             cart = Cart.create
             # puts cart.id
             session[:cart_id] = cart.id
-            # cart
+            cart
         end
-        return cart
+        # return cart
     end
 
     # def current_cart

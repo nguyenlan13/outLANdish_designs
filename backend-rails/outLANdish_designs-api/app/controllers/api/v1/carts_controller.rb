@@ -31,13 +31,13 @@ class Api::V1::CartsController < ApplicationController
     end
 
 
-    def show
-        # cart = get_cart
-        # @cart = current_cart
+    # def show
+    #     # cart = get_cart
+    #     # @cart = current_cart
        
-        cart = Cart.find_by(id: session[:cart_id])
-        # @item = @cart.items.build
+    #     cart = Cart.find_by(id: session[:cart_id])
+    #     # @item = @cart.items.build
 
-        render json: {cart: cart, items: cart.items}
-    end
+    #     render json: {cart: cart, items: cart.items}
+    # end
 end
