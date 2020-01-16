@@ -4,8 +4,6 @@ class ApplicationController < ActionController::API
 
     protect_from_forgery with: :exception
     before_action :set_csrf_cookie
-    # before_action :set_access_control_headers
-    # before_action :current_cart
     # before_action :get_cart
 
     def log_in(account)
@@ -21,67 +19,21 @@ class ApplicationController < ActionController::API
     end
 
     def get_cart
-        # byebug
-        # puts "#{session}"
         if logged_in?
-            # puts "is logged in"
-            current_account.cart
+            cart = current_account.cart
+            return cart
         elsif session[:cart_id]
-            # puts "has cart_id in session"
-            # puts session[:cart_id]
             cart = Cart.find(session[:cart_id])
-            # puts "#{session}"
-        else
-            # puts "creating cart"
-            cart = Cart.create
-            # puts cart.id
             session[:cart_id] = cart.id
-            cart
+            return cart
+        else
+            cart = Cart.create
+            session[:cart_id] = cart.id
+            return cart
         end
-        # return cart
     end
-
-    # def current_cart
-    #     if session[:cart_id]
-    #       cart = Cart.find_by(id: session[:cart_id])
-    #       if cart.present?
-    #         current_cart = cart
-    #       else
-    #         session[:cart_id] = nil
-    #       end
-    #     end
-  
-    #     if session[:cart_id] == nil
-    #       current_cart = Cart.create
-    #       session[:cart_id] = current_cart.id
-    #     end
-    #   end
     
         private
-    
-    # def set_access_control_headers
-    #     #response.set_header('Access-Control-Allow-Origin', '*')
-    #     #response.set_header('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET, OPTIONS')
-    #     #response.set_header('Access-Control-Request-Method', '*')
-    #     #response.set_header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
-    #     puts "hello"
-    # end
-
-    # def current_cart
-    #   if session[:cart_id]
-    #     cart = Cart.find_by(id: session[:cart_id])
-    #     if cart.present?
-    #       current_cart = cart
-    #     else
-    #       session[:cart_id] = nil
-    #     end
-    #   end
-
-    #   if session[:cart_id] == nil
-    #     current_cart = Cart.create
-    #     session[:cart_id] = current_cart.id
-    #   end
-    # end
 
     def set_csrf_cookie
         cookies["CSRF-TOKEN"] = form_authenticity_token

@@ -15,36 +15,23 @@ class ItemAdapter{
             const itemJson = await itemResponse.json()
             return itemJson
         }catch(error){
-
+            console.log(error.message)
         }
     }
 
-    async addToCart(currentId){
-        const res = await fetch(`${this.baseURL}/cart_items`, {
-            method: "POST",
-            headers: this.headers,
-            body: JSON.stringify({item_id: currentId}),
-            credentials: 'include'
-        }) 
-        return res.json()
+    async addToCart(itemId){
+        try{
+            const res = await fetch(`${this.baseURL}/cart_items`, {
+                method: "POST",
+                headers: this.headers,
+                body: JSON.stringify({item_id: itemId}),
+                credentials: 'include'
+            }) 
+        }catch(error){
+            console.log(error.message)
+        }
     }
-
-
-    // async getNumOfItems(){
-    //     try{
-    //         const cartResponse = await fetch(`${this.baseURL}/mycart/items`)
-    //         console.log(cartResponse)
-    //         const cartJson = await cartResponse.json()
-    //         console.log(cartJson)
-    //         return cartJson
-    //     }catch(error){
-
-    //     }
-    // }
-
-
-
-    
+   
     // async getNumOfItems(){
     //     try{
     //         const numResponse = await fetch(`${this.baseURL}/cart_items`)

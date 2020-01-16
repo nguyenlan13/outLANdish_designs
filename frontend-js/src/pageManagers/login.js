@@ -34,7 +34,7 @@ class LoginPage extends PageManager{
 
     get staticHTML(){
         return(`
-        <form id="login">
+        <form class="padd" id="login">
         <h2> Log In </h2>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>

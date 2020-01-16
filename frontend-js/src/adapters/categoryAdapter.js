@@ -8,37 +8,26 @@ class CategoryAdapter{
     async getCategories(){
         try{
             const categoriesResponse = await fetch(`${this.baseURL}/categories`)
+        
             const categoriesJson = await categoriesResponse.json()
-        return categoriesJson
+            return categoriesJson
         }catch(error){
-
+            console.log(error.message)
         }
     }
 
-    // async getNumOfItems(){
-    //     try{
-    //         const cartResponse = await fetch(`${this.baseURL}/mycart`)
-    //         console.log(cartResponse)
-    //         const cartJson = await cartResponse.json()
-    //         console.log(cartJson)
-    //         return cartJson
-    //     }catch(error){
-
-    //     }
-    // }
-
-
-    // async showCartItems(){
-    //     try{
-    //         // const cartResponse = await fetch(`${this.baseURL}/carts/1/items`)
-    //         const cartResponse = await fetch(`${this.baseURL}/mycart`)
-    //         // console.log(cartResponse)
-    //         const cartJson = await cartResponse.json()
-    //         console.log(cartJson)
-    //         return cartJson
-    //     }catch(error){
-    //         console.log(error.message)
-    //     }
-    // }
-
+    async getNumOfItems(){
+        try{
+            const numResponse = await fetch(`${this.baseURL}/mycart`, {
+                method: "GET",
+                headers: this.headers,
+                credentials: 'include'
+            })
+            console.log(numResponse)
+            const numJson = await numResponse.json()
+            return numJson
+        }catch(error){
+            console.log(error.message)
+        }
+    }
 }

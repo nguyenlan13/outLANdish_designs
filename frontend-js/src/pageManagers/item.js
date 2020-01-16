@@ -23,23 +23,23 @@ class ItemPage extends PageManager{
         `)
     }
 
-
-    
-
-
-
     async addItem(e){
         if(e.target.tagName === "A"){
             e.preventDefault()
-            if(e.target.id.split('-')[0] = 'add' ){
+            if(e.target.id.split('-')[0] === 'add' ){
                 // let counter = document.querySelector('#inc-num')
-                let currentId = e.target.id.split('-')[1]
-                this.itemToAdd = await this.adapter.addToCart(currentId)
+                let itemId = e.target.id.split('-')[1]
+                this.itemToAdd = await this.adapter.addToCart(itemId)
                 console.log(this.itemToAdd)
+                // let currentId = this.itemToAdd.cart.id
+                // console.log(currentId)
+                // this.redirect('cart', currentId)
             }
+        }
+    }
 
               
-                // if(e.target.querySelector = '.add-cart'){
+                // if(e.target.querySelector === '.add-cart'){
                     
                             
                 //     this.incrementCart = (num) => {
@@ -70,14 +70,14 @@ class ItemPage extends PageManager{
         //  document.querySelector('#inc-num').innerText = `${currentCart}`
          
             // }
-        }
+    //     }
 
-    }
+    // }
 
     // updateCart(e){
     //     if(e.target.tagName === "A"){
     //         e.preventDefault()
-    //         if(e.target.querySelector = '.add-cart'){
+    //         if(e.target.querySelector === '.add-cart'){
     //             let counter = document.querySelector('#inc-num')
                         
     //             this.incrementCart = (num) => {
@@ -99,9 +99,9 @@ class ItemPage extends PageManager{
 
             output += (`
       
-                <img class="card-img-top rounded float-left" style="width: 40rem; margin-right: 20px" src=${item.item_path} alt="Card image cap">
+                <img class="card-img-top rounded float-left padd" style="width: 40rem; margin-right: 20px" src=${item.item_path} alt="Card image cap">
                 <div class="card-body"><span style="padding-top: 10px">
-                    <h5 class="card-title">${item.name}</h5>
+                    <h5 class="card-title padd">${item.name}</h5>
                         <p class="card-text">${item.description}</p>
                         <p class="card-text">${item.color}</p>
                         <p class="card-text">${item.size}</p>

@@ -10,11 +10,15 @@ class LoginAdapter {
     }
 
     async login(params){
-        const res = await fetch(`${this.baseURL}/login`, {
-            method: "POST",
-            headers: this.headers,
-            body: JSON.stringify(params),
-            credentials: 'include'
-        })
+        try{
+            const res = await fetch(`${this.baseURL}/login`, {
+                method: "POST",
+                headers: this.headers,
+                body: JSON.stringify(params),
+                credentials: 'include'
+            })
+        }catch(error){
+            console.log(error.message)
+        }
     }
 }

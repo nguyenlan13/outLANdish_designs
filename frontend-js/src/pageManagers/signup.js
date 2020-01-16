@@ -32,8 +32,8 @@ class SignupPage extends PageManager{
 
     get staticHTML(){
         return(`
-        <h2> Sign Up for an Account </h2>
-         <form id="signup">
+         <form class="padd" id="signup">
+         <h2> Sign Up for an Account </h2>
          <p>
            <div class="form-row">
                 <div class="form-group col-md-6">

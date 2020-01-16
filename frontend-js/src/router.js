@@ -38,7 +38,4 @@ class Router{
             return this.currentPage
         }
     }
-
-
-
 }

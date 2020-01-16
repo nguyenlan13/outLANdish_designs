@@ -3,7 +3,6 @@ class CartPage extends PageManager{
     constructor(container, adapter){
         super(container)
         this.adapter = new CartAdapter(adapter)
-        // this.showItemsInCart()
     }
 
     initBindingsAndEventListeners(){
@@ -26,7 +25,7 @@ class CartPage extends PageManager{
                 let currentId = e.target.id.split('-')[1]
                 console.log(currentId)
                 const deleteItem = await this.adapter.removeFromCart(currentId)        
-                // this.redirect("cart", itemtId);
+                this.redirect("cart", currentId);
             }else{
                 if(e.target.id.split('-')[0] == 'order'){
                     this.redirect("login")
@@ -36,30 +35,17 @@ class CartPage extends PageManager{
     }
 
 
-    // async showItemsInCart(){
-    //     let thing = document.getElementById('testing').addEventListener('click', e =>{
-    //         console.log("hello")
-    //         let items = this.adapter.showCartItems()
-    //         console.log(items.item)
-        
-    //         // let items = this.adapter.showCartItems()
-    //         // console.log(items)
-    //     })
-    
-    //  }
-
-     async fetchAndRenderPageResources(page, currentId){
-        this.cartHtml(currentId)
-        // this.showItemsInCart()
+     async fetchAndRenderPageResources(currentId){
+        this.fetchCartItems()
      }
 
-//     async fetchAndRenderPageResources(page, currentId){
-    async cartHtml(currentId){
+
+    async fetchCartItems(){
         let output = '';
         output += `<div class="card-group">`
-        let items = await this.adapter.showCartItems(currentId);
-console.log(currentId)
-console.log(items)
+        let response = await this.adapter.showCartItems();
+        let items = response['items']
+        // console.log(items)
         for (let i = 0; i < items.length; i++) {
             let itemId = items[i].id;
             let name = items[i].name;
@@ -70,7 +56,7 @@ console.log(items)
             let price = items[i].price
             console.log(price)
             output += (`
-            <div style="width: 50%">
+            <div class= "padd" style="width: 50%">
                 <img class="card-img-top rounded float-left" style="width: 70%; margin-right: 20px" src=${imgPath} alt="Card image cap">
                 <div class="card-body" style="width: 50%">    
                     <h5 class="card-title">${name}</h5>
@@ -81,9 +67,10 @@ console.log(items)
                         <a href="#" class="btn btn-primary remove-item" id="remove-${itemId}">Remove</a>
                 </div>
             </div>
+            <br>
             `)           
         }
-        output +=`<div> <a href="#" class="btn btn-primary" id="order-" style="margin-right: 20px">Checkout</a></div> </div>`
+        output +=`<div class="padd"> <a href="#" class="btn btn-primary" id="order-" style="margin-right: 20px">Checkout</a></div> </div>`
         this.container.innerHTML = (`${output}`)
     }
 }

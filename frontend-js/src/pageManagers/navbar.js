@@ -34,14 +34,14 @@ class Navbar extends PageManager{
     }
 
     async fetchAndRenderPageResources() {
-    //    this.renderNav()
-    //    this.getCurrentItemCount()
-    // }
+       this.renderNav()
+       this.getCurrentItemCount()
+    }
 
-    // async renderNav(){
+    async renderNav(){
         const navPart1 = (`
             <nav class="navbar fixed-top2 navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" id='welcome-link' href="#">
                 <img id="brand-logo" src="assets/Outlandish_Designs_Neon_Lights_White.png">
             </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,18 +82,15 @@ class Navbar extends PageManager{
     }
 
 
-    // async getCurrentItemCount(){
-    //     let cartItemCount = await this.adapter.getNumOfItems()
-    //     console.log(cartItemCount)
-    //     let currentCart = cartItemCount.items.length
-    //     console.log(currentCart)
-    //     document.querySelector('#inc-num').innerText = `${currentCart}`
-    // }
-
-    // async showItemsInCart(){
-    //    let cartNumber = document.getElementById('inc_num')
-    //    let get
-    // }
+    async getCurrentItemCount(){
+        let cartItemCount = await this.adapter.getNumOfItems()
+        let currentCart = cartItemCount.items.length
+    
+        if (currentCart != null){
+            document.querySelector('#inc-num').innerText = `${currentCart}`
+        }else
+            document.querySelector('#inc-num').innerText = '0'
+    }
 
     get staticHTML(){    
         return (`

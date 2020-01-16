@@ -68,3 +68,13 @@ body {
 }
 
 
+.form-size {
+    width: 550px;
+    height: 450px;
+    margin: auto;
+    position: relative;
+   }
+
+   .padd {
+    padding-top: 50px;
+  }

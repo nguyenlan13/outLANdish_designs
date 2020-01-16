@@ -44,20 +44,21 @@ class ItemCategoryPage extends PageManager{
                 let imgPath = items[i].item_path;
                 
                 output += (`
+                
 
-                <div class="row row-cols-1 row-cols-md-3">
+                <div class="row row-cols-1 row-cols-md-3 padd">
                 <div class="col mb-4">
-                  <div class="card h-100">
-                        <img class="card-img-top" src="${imgPath}">
+                  <div class="card mr">
+                        <img class="card-img-top" src="${imgPath}"></img>         
                         <div class="card-body">
                             <h5 class="card-title">${name}</h5>
                                 <p class="card-text"> </p>
                                 <a href="#" class="btn btn-primary details" id="item-${itemId}">Details</a>
-                            
+                                </div>
+                                </div>
                         </div>
                     </div>
-                    </div>
-                    </div>
+                 
                 `)
             }
             // remove button?
@@ -72,8 +73,7 @@ class ItemCategoryPage extends PageManager{
     //     `)
     // }
 
-
-
+  
 
     // async fetchAndRenderPageResources(currentId) {
     //     let output = '';

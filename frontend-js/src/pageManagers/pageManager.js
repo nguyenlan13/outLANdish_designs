@@ -24,9 +24,9 @@ class PageManager{
         }
     }
 
-    async render(page, currentId){
+    async render(currentId){
         this.container.innerHTML = this.staticHTML
-        this.fetchAndRenderPageResources(page, currentId)
+        this.fetchAndRenderPageResources(currentId)
         this.initBindingsAndEventListeners()
     }
 }

@@ -14,12 +14,16 @@ class SignupAdapter{
     }
 
     async signup(params){
-        const res = await fetch(`${this.baseURL}/signup`, {
-            method: "POST",
-            headers: this.headers,
-            body: JSON.stringify(params),
-            credentials: 'include'
-        })
+        try{
+            const res = await fetch(`${this.baseURL}/signup`, {
+                method: "POST",
+                headers: this.headers,
+                body: JSON.stringify(params),
+                credentials: 'include'
+            })
         // this.baseAdapter.csrf_token = res.headers.get('set-cookie')
+        }catch(error){
+            console.log(error.message)
+        }
     }
 }

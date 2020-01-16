@@ -9,9 +9,9 @@ class ItemCategoryAdapter{
         try{
             const itemsResponse = await fetch(`${this.baseURL}/categories/${currentId}/items`)
             const itemsJson = await itemsResponse.json()
-        return itemsJson
+            return itemsJson
         }catch(error){
-       
+            console.log(error.message)
         }
     }
 }
