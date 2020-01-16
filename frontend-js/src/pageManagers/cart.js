@@ -12,7 +12,7 @@ class CartPage extends PageManager{
     
     get staticHTML(){
         return (`
-            <div> Carts Page </div>
+        <div class="loader"></div>
         `)
     }
 

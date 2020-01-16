@@ -17,9 +17,7 @@ class ItemPage extends PageManager{
 
     get staticHTML(){
         return (`
-
-        <div> Items Page </div>
-        
+            <div class="loader"></div>
         `)
     }
 
