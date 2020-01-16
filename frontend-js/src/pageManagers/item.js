@@ -90,12 +90,12 @@ class ItemPage extends PageManager{
 
 
     async fetchAndRenderPageResources(currentId) {
-        let output = '';
+        let output1 = '';
 
         let item = await this.adapter.getItem(currentId);
         console.log(currentId)
 
-            output += (`
+            output1 += (`
       
                 <img class="card-img-top rounded float-left padd" style="width: 40rem; margin-right: 20px" src=${item.item_path} alt="Card image cap">
                 <div class="card-body"><span style="padding-top: 10px">
@@ -107,8 +107,23 @@ class ItemPage extends PageManager{
                         <a href="#" class="btn btn-primary add-cart" id=add-${item.id}>Add to cart</a>
                         </span>
                 </div>
-        
             `)
-            this.container.innerHTML = (`${output}`)
+        let output2 = ''
+            if (item.reviews != null){
+                for (let i = 0; i < item.reviews.length; i++){
+                let reviewRating = item.review.rating
+                let reviewContent = item.review.content
+                let reviewUser = item.review.account.name
+
+            output2 +=(`
+                <div> 
+                    <p>${reviewContent}reviews</p> <p>${reviewRating}5</p>/5 <p>${reviewUser}</p>
+                <div>
+           `)
+            }
+        }else{
+            output2 +=(`<p> NO REVIEWS YET </p>`)
+        }
+            this.container.innerHTML = (`${output1}` + `${output2}`)
     }
 }

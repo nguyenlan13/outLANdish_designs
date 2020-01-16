@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 lan = Account.create(email: "lan@gmail.com", name: "Lan", password: "password", billing_street_1: "123 Fake Street", billing_city: "Irvine", billing_state: "CA", billing_zip: 92614, shipping_street_1: "321 fake street", shipping_city: "huntington beach", shipping_state: "CA", shipping_zip: 92649)
+new_person = Account.create(email: "np@gmail.com", name: "New Person", password: "password", billing_street_1: "123 Fake Street", billing_city: "Irvine", billing_state: "CA", billing_zip: 92614, shipping_street_1: "321 fake street", shipping_city: "huntington beach", shipping_state: "CA", shipping_zip: 92649)
 
 lan_cart = Cart.create(account: lan)
 
@@ -74,3 +75,6 @@ sale3 = ItemCategory.create(item: halloween, category: sale)
 
 lan_order = Order.create(account:lan, order_date: "12/22/19", po_number: "LN122219", shipping_cost: 5.99, order_total: 25.99, billing_street_1: "123 Fake Street", billing_city: "Irvine", billing_state: "CA", billing_zip: 92614, shipping_street_1: "321 Fake Street", shipping_city: "Huntington Beach", shipping_state: "CA", shipping_zip: 92649)
 lan_order_items = OrderItem.create(item: heapify, order: lan_order, item_name: "Heapify", item_description: 'Harry Potter inspired, min heap', item_color: "Heathered Maroon", item_size: "XS", item_price: 24.99, quantity: 1)
+
+review1 = Review.create(account: lan, item: heapify, rating: 5, content: "Love this shirt!")
+review2 = Review.create(account: new_person, item: heapify, rating: 5, content: "Perfect Fit!!!!")

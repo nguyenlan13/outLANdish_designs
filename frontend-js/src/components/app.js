@@ -17,6 +17,7 @@ class App{
             'item': new ItemPage(this.pageContainer, this.adapter),
             'itemCategory': new ItemCategoryPage(this.pageContainer, this.adapter),
             'cart': new CartPage(this.pageContainer, this.adapter)
+            
          })
 
         const navbar = new Navbar(this.navbarContainer, this.adapter)
