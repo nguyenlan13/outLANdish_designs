@@ -42,7 +42,7 @@ class CartPage extends PageManager{
 
     async fetchCartItems(){
         let output = '';
-        output += `<div class="card-group">`
+        output += `<h2 class="padd"> Your Cart: <h2> <div class="card-group">`
         let response = await this.adapter.showCartItems();
         let items = response['items']
         // console.log(items)
