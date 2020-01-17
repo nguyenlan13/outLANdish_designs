@@ -7,12 +7,6 @@ class ItemPage extends PageManager{
 
     initBindingsAndEventListeners(){
         this.container.onclick = this.addItem.bind(this)
-        // this.container.onclick = this.updateCart.bind(this)
-        // this.container.addEventListener('submit', this.addItem.bind(this))
-        // this.container.onSubmit = this.addItem.bind(this)
-        // this.incCartItems = this.container.querySelector('.add-cart')
-        // this.incCartItems.addEventListener('click', this.updateCart.bind(this))
-        // this.container.onSubmit = this.addItem.bind(this)
     }
 
     get staticHTML(){
@@ -25,76 +19,17 @@ class ItemPage extends PageManager{
         if(e.target.tagName === "A"){
             e.preventDefault()
             if(e.target.id.split('-')[0] === 'add' ){
-                // let counter = document.querySelector('#inc-num')
                 let itemId = e.target.id.split('-')[1]
                 this.itemToAdd = await this.adapter.addToCart(itemId)
                 console.log(this.itemToAdd)
-                // let currentId = this.itemToAdd.cart.id
-                // console.log(currentId)
-                // this.redirect('cart', currentId)
             }
         }
     }
-
-              
-                // if(e.target.querySelector === '.add-cart'){
-                    
-                            
-                //     this.incrementCart = (num) => {
-                //         let currentNumItems = parseInt(counter.innerText)
-                //         let newCart = currentNumItems += num
-                //         return newCart
-                //     }
-                
-                // let counter = document.querySelector('#inc-num').innerText
-                // console.log(counter)
-                //  incrementCart = () => {
-
-
-                // let cartItemCount = await this.adapter.getNumOfItems()
-                // let currentCart = cartItemCount.length
-                // console.log(currentCart)
-                        // counter.innerText = currentCart
-                            // let currentCart = document.querySelector('#inc-num').innerText
-                            // let newCart = currentCart += num
-                            // let newCart = currentCart++
-                            // return newCart
-                            // counter = 
-                            
-                //  }
-                // let counter = currentCart++
-                // console.log(counter)
-            // }
-        //  document.querySelector('#inc-num').innerText = `${currentCart}`
-         
-            // }
-    //     }
-
-    // }
-
-    // updateCart(e){
-    //     if(e.target.tagName === "A"){
-    //         e.preventDefault()
-    //         if(e.target.querySelector === '.add-cart'){
-    //             let counter = document.querySelector('#inc-num')
-                        
-    //             this.incrementCart = (num) => {
-    //                 let currentNumItems = parseInt(counter.innerText)
-    //                 let newCart = currentNumItems += num
-    //                 return newCart
-    //             }
-    //             document.querySelector('#inc-num').innerText = this.incrementCart(1)
-    //         }
-    //     }
-    // }
-
 
     async fetchAndRenderPageResources(currentId) {
         let output1 = '';
 
         let item = await this.adapter.getItem(currentId);
-        console.log(currentId)
-
             output1 += (`
       
                 <img class="card-img-top rounded float-left padd" style="width: 40rem; margin-right: 20px" src=${item.item_path} alt="Card image cap">
@@ -108,22 +43,21 @@ class ItemPage extends PageManager{
                         </span>
                 </div>
             `)
-        let output2 = ''
+          
+            let output2 = (`<h5>Reviews:</h5>`)
+            let itemReview = item.reviews
             if (item.reviews != null){
                 for (let i = 0; i < item.reviews.length; i++){
-                let reviewRating = item.review.rating
-                let reviewContent = item.review.content
-                let reviewUser = item.review.account.name
+                let reviewRating = itemReview[i].rating
+                let reviewContent = itemReview[i].content
 
-            output2 +=(`
+            output2 += (`
                 <div> 
-                    <p>${reviewContent}reviews</p> <p>${reviewRating}5</p>/5 <p>${reviewUser}</p>
+                    <p>${reviewContent} - ${reviewRating}/5</p>
                 <div>
            `)
+                }
             }
-        }else{
-            output2 +=(`<p> NO REVIEWS YET </p>`)
-        }
-            this.container.innerHTML = (`${output1}` + `${output2}`)
+        this.container.innerHTML = (`${output1}`+`${output2}`)
     }
 }

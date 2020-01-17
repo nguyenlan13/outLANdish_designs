@@ -2,15 +2,15 @@ class Api::V1::ReviewsController < ApplicationController
     
     def index
         if params[:item_id]
-            @reviews = Item.find(params[:item_id]).reviews
+            reviews = Item.find(params[:item_id]).reviews
         # elsif params[:account_id]
         #     @reviews = Account.find(params[:account_id]).reviews
         else
-            @reviews = Account.find(params[:account_id]).reviews
+            reviews = Account.find(params[:account_id]).reviews
         # else
         #     @reviews = Review.all
         end
-        render json: @reviews, status: 200
+        render json: reviews, status: 200
     end
 
     def create
@@ -19,12 +19,12 @@ class Api::V1::ReviewsController < ApplicationController
         render json: @review, status: 200
     end
 
-    # def show
-    #     @item = Item.find(params[:id])
+    def show
+        review = Review.find(params[:id])
 
-    #     render json: {item: @item, categories: @item.categories}
-    #     # render json: @item, status: 200
-    # end
+        render json: {review: review, item: review.item}
+        # render json: @item, status: 200
+    end
 
     # def edit
 

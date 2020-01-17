@@ -35,7 +35,7 @@ class Navbar extends PageManager{
 
     async fetchAndRenderPageResources() {
        this.renderNav()
-    //    this.getCurrentItemCount()
+       this.getCurrentItemCount()
     }
 
     async renderNav(){
@@ -82,15 +82,15 @@ class Navbar extends PageManager{
     }
 
 
-    // async getCurrentItemCount(){
-    //     let cartItemCount = await this.adapter.getNumOfItems()
-    //     // if (cartItemCount != null){
-    //     let currentCart = cartItemCount.items.length
-    //     if (currentCart != null){
-    //         document.querySelector('#inc-num').innerText = `${currentCart}`
-    //     }else
-    //         document.querySelector('#inc-num').innerText = '0'
-    // }
+    async getCurrentItemCount(){
+        let cartItemCount = await this.adapter.getNumOfItems()
+        // if (cartItemCount != null){
+        let currentCart = cartItemCount.items.length
+        if (currentCart != null){
+            document.querySelector('#inc-num').innerText = `${currentCart}`
+        }else
+            document.querySelector('#inc-num').innerText = '0'
+    }
 
     get staticHTML(){    
         return (`
