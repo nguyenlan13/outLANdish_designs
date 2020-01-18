@@ -44,10 +44,12 @@ class ItemPage extends PageManager{
                 </div>
             `)
           
-            let output2 = (`<h5>Reviews:</h5>`)
+            let output2 = (`
+            <h5>Reviews:</h5>
+            `)
             let itemReview = item.reviews
-            if (item.reviews != null){
-                for (let i = 0; i < item.reviews.length; i++){
+            if (itemReview != ''){
+                for (let i = 0; i < itemReview.length; i++){
                 let reviewRating = itemReview[i].rating
                 let reviewContent = itemReview[i].content
 
@@ -57,6 +59,10 @@ class ItemPage extends PageManager{
                 <div>
            `)
                 }
+            }else{
+                output2 +=(`
+                <h5>NO REVIEWS YET</h5>
+                `)
             }
         this.container.innerHTML = (`${output1}`+`${output2}`)
     }
