@@ -31,14 +31,4 @@ class ItemAdapter{
             console.log(error.message)
         }
     }
-   
-    // async getNumOfItems(){
-    //     try{
-    //         const numResponse = await fetch(`${this.baseURL}/cart_items`)
-    //         const numJson = await numResponse.json()
-    //         return numJson
-    //     }catch(error){
-
-    //     }
-    // }
 }

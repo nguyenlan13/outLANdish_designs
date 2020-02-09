@@ -21,7 +21,7 @@ class Api::V1::CartItemsController < ApplicationController
         cart = get_cart
         cart_item = CartItem.find_by(cart: cart, item: params[:item_id])
         if cart_item.delete
-            render json: { message: "Item successfully deleted cart!", status: 200}
+            render json: { message: "Item successfully deleted!", status: 200}
         else
             render json: { message: "Sorry, item was not removed from cart. Please try again.", error: true}
         end

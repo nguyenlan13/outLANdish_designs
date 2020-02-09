@@ -1,10 +1,5 @@
 class Api::V1::ItemsController < ApplicationController
 
-    def example
-        puts session[:cart_id]
-
-    end
-
     def index
         if params[:category_id]
             @items = Category.find(params[:category_id]).items

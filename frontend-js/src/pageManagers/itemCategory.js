@@ -34,7 +34,7 @@ class ItemCategoryPage extends PageManager{
 
 
     async fetchAndRenderPageResources(currentId) {
-        let output = '';
+        let output = '<div class="row padd">';
 
         
         let items = await this.adapter.getCategoryItems(currentId);
@@ -45,20 +45,18 @@ class ItemCategoryPage extends PageManager{
                 
                 output += (`
                 
-
-                <div class="row row-cols-1 row-cols-md-3 padd">
-                <div class="col mb-4">
-                  <div class="card mr">
+                <div class="column">
+                    <div class="card mr">
                         <img class="card-img-top" src="${imgPath}"></img>         
                         <div class="card-body">
                             <h5 class="card-title">${name}</h5>
                                 <p class="card-text"> </p>
                                 <a href="#" class="btn btn-primary details" id="item-${itemId}">Details</a>
-                                </div>
-                                </div>
                         </div>
                     </div>
-                 
+                </div>
+            
+                
                 `)
             }
             // remove button?

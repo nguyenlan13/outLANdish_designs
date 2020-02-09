@@ -1,3 +1,18 @@
+-item number in cart update as soon as add to cart is clicked
+
+-make logo route to home page
+
+-logut functionality
+
+
+
+
+
+
+
+
+
+
 home page with login on top right
 page for diff categories
 page for checking out

@@ -3,17 +3,17 @@ body {
     font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande',
       sans-serif;
     font-weight: 300;
-  }
+}
   
 .welcome-font {
     margin-top: 10px;
     font-weight: 600;
     font-size: 75px
-    }
+}
 
 #welcome-pic {
     width: 350px;
-    }
+}
 
 .nav-text {
     color: #e9ecef
@@ -22,8 +22,7 @@ body {
 .nav-font {
     font-weight: 600;
     font-size: 1.5rem;
-   
-    }
+}
 
 .nav-background{
     background-color: #3f4850
@@ -33,15 +32,15 @@ body {
     width: 1000px;
     margin: auto;
     margin-top: 50px;
-  }
+ }
 
 #brand-logo {
     width: 310px;
-  }
+}
 
 #welcome-img {
     width: 500px;
-  }
+ }
 
 .cart-icon {
     width: 35px;
@@ -73,8 +72,27 @@ body {
     height: 450px;
     margin: auto;
     position: relative;
-   }
+}
 
-   .padd {
+.padd {
     padding-top: 50px;
-  }
+}
+
+/* Float four columns side by side */
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+  
+  /* Remove extra left and right margins, due to padding in columns */
+.row {
+    margin: 0 -5px;
+}
+  
+  /* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
